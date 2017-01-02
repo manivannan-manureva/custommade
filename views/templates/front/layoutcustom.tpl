@@ -321,22 +321,22 @@
                                         {/if}
                                     {/foreach}
                                     {if $lang_id == 4}
-                                        <li><strong class="span2">{l s='Collection' mod='custommade'}</strong><span class="span2">{$category->name}</span></li>
+                                        <li><strong class="span2">{l s='Collection' mod='custommade'}</strong><span class="span2">{$category->name|escape:'htmlall':'UTF-8'}</span></li>
                                     {/if}
                                 </ul>
                             </div> 
                         </div>
                         {if $lang_id == 4}
                             <div class="span4 collection borderGrey boxHr"> 
-                                <h2>{l s='Manufacturer' mod='custommade'}<br/>{$product->manufacturer_name}</h2>
-                                <a itemprop="brand" href="{$link->getManufacturerLink($product_manufacturer, $product_manufacturer->link_rewrite, $cookie->id_lang)}"><img src="{$img_manu_dir}{$product->id_manufacturer}-manufacturer_big.jpg" class="img-responsive" alt="{$product_manufacturer->name}" /></a>          
+                                <h2>{l s='Manufacturer' mod='custommade'}<br/>{$product->manufacturer_name|escape:'htmlall':'UTF-8'}</h2>
+                                <a itemprop="brand" href="{$link->getManufacturerLink($product_manufacturer, $product_manufacturer->link_rewrite, $cookie->id_lang)}"><img src="{$img_manu_dir}{$product->id_manufacturer}-manufacturer_big.jpg" class="img-responsive" alt="{$product_manufacturer->name|escape:'htmlall':'UTF-8'}" /></a>          
                             </div>
                         {else} 
                             <div class="span4 collection borderGrey boxHr"> 
-                                <h2>{l s='Collection' mod='custommade'}<br/>{$category->name}</h2>
-                                <p class="parent_cat">{$parent_cat->name}</p>
+                                <h2>{l s='Collection' mod='custommade'}<br/>{$category->name|escape:'htmlall':'UTF-8'}</h2>
+                                <p class="parent_cat">{$parent_cat->name|escape:'htmlall':'UTF-8'}</p>
                                 <a href="{$link->getCategoryLink($parent_cat->id)}" style="width:100%;overflow:hidden;display:block;height:179px;">
-                                    <img src="{$link->getCatImageLink($parent_cat->link_rewrite, $parent_cat->id_image, 'category_default')}" alt="{$parent_cat->name}"/>
+                                    <img src="{$link->getCatImageLink($parent_cat->link_rewrite, $parent_cat->id_image, 'category_default')}" alt="{$parent_cat->name|escape:'htmlall':'UTF-8'}"/>
                                 </a>
                             </div>
                         {/if}
@@ -345,9 +345,9 @@
                          
                             <div class="texte align_center">
                                 {if $product->description != ''}
-                                    {$product->description}
+                                    {$product->description|escape:'htmlall':'UTF-8'}
                                 {else}
-                                    {$product->description_short}
+                                    {$product->description_short|escape:'htmlall':'UTF-8'}
                                 {/if}
                             </div>
                         </div>
@@ -389,16 +389,16 @@
                 <li><span>{l s='Question / Conseil / Commande' mod='custommade'}</span><br/><span>{l s='01 73 79 78 87' mod='custommade'}</span></li>
             {/if}
             {if $lang_id == 4}
-            <li><span>{l s='Livraison' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{if $entrega == ''}{l s='N/A' mod='custommade'}{else}{$entrega}{/if}</span></li>
+            <li><span>{l s='Livraison' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{if $entrega == ''}{l s='N/A' mod='custommade'}{else}{$entrega|escape:'htmlall':'UTF-8'}{/if}</span></li>
             <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France métropolitaine' mod='custommade'}">{l s='Dès 150 € d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
-            {$HOOK_PRODUCT_TAB}
+            {$HOOK_PRODUCT_TAB|escape:'htmlall':'UTF-8'}
             {else}
             <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France métropolitaine' mod='custommade'}">{l s='Dès 150 € d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
-            <li><span>{l s='Livraison standard' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{$delai_livraison2} - {if $standard_delivery_price != '' && $standard_delivery_price > 0}{convertPrice price=$standard_delivery_price*1.2}{else}{l s='Gratuit' mod='custommade'}{/if}</span></li>
+            <li><span>{l s='Livraison standard' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{$delai_livraison2|escape:'htmlall':'UTF-8'} - {if $standard_delivery_price != '' && $standard_delivery_price > 0}{convertPrice price=$standard_delivery_price*1.2}{else}{l s='Gratuit' mod='custommade'}{/if}</span></li>
             {if $delai_livraison == ''}
                 <li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='custommade'}</span><br/><span><strong class="avis">{$comments|@count}</strong> {l s='avis sur ce produit' mod='custommade'}</span></a></li>
             {else}
-                <li><span>{l s='Livraison rapide' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{if $delai_livraison == ''}{l s='Non disponible' mod='custommade'}{else}{$delai_livraison} - {if $express_delivery_price != ''}{convertPrice price=$express_delivery_price*1.2}{else}{l s='Gratuit' mod='custommade'}{/if}{/if}</span></li>
+                <li><span>{l s='Livraison rapide' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{if $delai_livraison == ''}{l s='Non disponible' mod='custommade'}{else}{$delai_livraison|escape:'htmlall':'UTF-8'} - {if $express_delivery_price != ''}{convertPrice price=$express_delivery_price*1.2}{else}{l s='Gratuit' mod='custommade'}{/if}{/if}</span></li>
             {/if}
 
             {/if}{debug}
@@ -411,7 +411,7 @@
     </div>
     <div class="clear"></div>
     <div id="HOOK_PRODUCT_TAB_CONTENT">
-        {$HOOK_PRODUCT_TAB_CONTENT}
+        {$HOOK_PRODUCT_TAB_CONTENT|escape:'htmlall':'UTF-8'}
     </div>
 {/if}
     
