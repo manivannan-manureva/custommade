@@ -917,8 +917,8 @@
         
         
         //newCustomPrice = (((cropper.getData(true).width) * (cropper.getData(true).height)) / 10000) * pricePerMeterSq;
-        var widthValue = parseFloat(jQuery('#dataWidth').val());
-        var heightValue = parseFloat(jQuery('#dataHeight').val());
+        var widthValue = parseFloat(jQuery('#dataWidth').val()) / 100;
+        var heightValue = parseFloat(jQuery('#dataHeight').val()) / 100;
         
         var dimension = widthValue * heightValue;
         newCustomPrice = dimension * (pricePerMeterSq);
