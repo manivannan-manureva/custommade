@@ -53,7 +53,7 @@
 			<span style="float:left">
 				{if $quantityDisplayed == 0 AND isset($customizedDatas.$productId.$productAttributeId)}{$customizedDatas.$productId.$productAttributeId|@count}
 				{else}
-					{$product.cart_quantity-$quantityDisplayed}
+					{$product.cart_quantity-$quantityDisplayed|escape:'htmlall':'UTF-8'}
 				{/if}
 			</span>
 		{else}
