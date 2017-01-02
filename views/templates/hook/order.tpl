@@ -37,7 +37,6 @@
                 <th>
                     <span class="title_box ">{l s='Options' mod='custommade'}</span>
                 </th>
-                <th><span class="title_box ">{l s='Print' mod='custommade'}</span></th>
             </tr>
         </thead>
         <tbody>
@@ -52,19 +51,10 @@
                     <td>
                         X: {$getHDDetails['crop_options'][$key]->x|escape:'htmlall':'UTF-8'}</br>
                         Y: {$getHDDetails['crop_options'][$key]->y|escape:'htmlall':'UTF-8'}</br>
-                        Width: {$getHDDetails['crop_options'][$key]->userWidth|escape:'htmlall':'UTF-8'}</br>
-                        Height: {$getHDDetails['crop_options'][$key]->userHeight|escape:'htmlall':'UTF-8'}</br>
+                        Width: {$getHDDetails['crop_options'][$key]->userWidth|escape:'htmlall':'UTF-8'}{l s=' CM' mod='custommade'}</br>
+                        Height: {$getHDDetails['crop_options'][$key]->userHeight|escape:'htmlall':'UTF-8'}{l s=' CM' mod='custommade'}</br>
                         Rotate: {$getHDDetails['crop_options'][$key]->rotate|escape:'htmlall':'UTF-8'}</br>
                     </td>                    
-                    <td>
-                        {* edit/delete controls *}
-                        <div class="btn-group">
-                            <button type="button" class="btn btn-default" onclick="javascript:window.print();">
-                                {l s='Print' mod='custommade'}
-                            </button>
-                        </div>
-                        {* Update controls *}
-                    </td>
                 </tr>
             {foreachelse}
                 <tr>
