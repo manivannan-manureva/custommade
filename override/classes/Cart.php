@@ -65,12 +65,12 @@ class Cart extends CartCore
             );
 
             if ($product['reduction_type'] == 'amount') {
-				$reduction = (!Product::getTaxCalculationMethod() ? (float)$product['price_wt'] : (float)$product['price']) - (float)$product['price_without_quantity_discount'];
+                $reduction = (!Product::getTaxCalculationMethod() ? (float)$product['price_wt'] : (float)$product['price']) - (float)$product['price_without_quantity_discount'];
                 $product['reduction_formatted'] = Tools::displayPrice($reduction);
             }
             
-            if(isset($cropSessionData[$product['id_product']])){
-                $cropDataObject = json_decode($cropSessionData[$product['id_product']]);
+            if (isset($cropSessionData[$product['id_product']])) {
+                $cropDataObject = Tools::jsonDecode($cropSessionData[$product['id_product']]);
                 $product['custommade']['user_width'] = $cropDataObject->userWidth;
                 $product['custommade']['user_height'] = $cropDataObject->userHeight;
             }
@@ -151,7 +151,7 @@ class Cart extends CartCore
                 unset($cart_rules[$key]);
             }
         }
-
+        $errors = '';
         $summary = array(
             'delivery' => $delivery,
             'delivery_state' => State::getNameById($delivery->id_state),

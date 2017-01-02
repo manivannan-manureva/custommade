@@ -299,7 +299,7 @@
                                     <li><a title="Twitter" href="https://twitter.com/share?url={$link->getProductLink($product)|rawurlencode}&amp;text={$product->name} sur Au Fil des Couleurs" class="tweet-button" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"><img src="{$img_dir}social_twitter.png" alt="Twitter" /></a></li>
                                     <li><a title="Pinterest" href="https://www.pinterest.com/pin/create/button/?url={$link->getProductLink($product)|rawurlencode}&amp;media={$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox_default')|rawurlencode}&amp;description={$product->name} sur Au Fil des Couleurs" class="pin-it-button" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=350,width=850');return false;"><img src="{$img_dir}social_pint.png" alt="Pinterest" /></a></li>
                                     {*<li><a title="Google +" href="https://plus.google.com/share?url={$link->getProductLink($product)|rawurlencode}&amp;hl=fr" class="google-button" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img src="{$img_dir}social_google.png" alt="Google" /></a></li>*}				
-                                    <li class="print"><a onclick="$.get('{$img_dir}blank.gif');" href="javascript:print();"><img src="{$img_dir}social_print.png" alt="{l s='Print'}" /></a></li>
+                                    <li class="print"><a onclick="$.get('{$img_dir}blank.gif');" href="javascript:print();"><img src="{$img_dir}social_print.png" alt="{l s='Print' mod='custommade'}" /></a></li>
                             {/strip}
                             </ul>
                         </div>
@@ -310,7 +310,7 @@
                 
                 <div class="box3">
                         <div class="clear span4 features borderGrey boxHr">
-                            <h2>{l s='Fiche technique'}<br/>{if $product_type}{if $product_type == 24875 || $product_type == 36 || $product_type == 37 || $product_type == 25024 || $product_type == 25023}{l s='Papier peint'}{elseif $product_type == 420}{l s='Panneau'}{elseif $product_type == 414}{l s='Frise'}{elseif $product_type == 35}{l s='Mètre linéaire'}{else}{l s='Tissu'}{/if}{/if} {$product->name|escape:'htmlall':'UTF-8'}</h2> 
+                            <h2>{l s='Fiche technique' mod='custommade'}<br/>{if $product_type}{if $product_type == 24875 || $product_type == 36 || $product_type == 37 || $product_type == 25024 || $product_type == 25023}{l s='Papier peint' mod='custommade'}{elseif $product_type == 420}{l s='Panneau' mod='custommade'}{elseif $product_type == 414}{l s='Frise' mod='custommade'}{elseif $product_type == 35}{l s='Mètre linéaire' mod='custommade'}{else}{l s='Tissu' mod='custommade'}{/if}{/if} {$product->name|escape:'htmlall':'UTF-8'}</h2> 
                             
                             <div class="texte">
                                 <ul>
@@ -321,19 +321,19 @@
                                         {/if}
                                     {/foreach}
                                     {if $lang_id == 4}
-                                        <li><strong class="span2">{l s='Collection'}</strong><span class="span2">{$category->name}</span></li>
+                                        <li><strong class="span2">{l s='Collection' mod='custommade'}</strong><span class="span2">{$category->name}</span></li>
                                     {/if}
                                 </ul>
                             </div> 
                         </div>
                         {if $lang_id == 4}
                             <div class="span4 collection borderGrey boxHr"> 
-                                <h2>{l s='Manufacturer'}<br/>{$product->manufacturer_name}</h2>
+                                <h2>{l s='Manufacturer' mod='custommade'}<br/>{$product->manufacturer_name}</h2>
                                 <a itemprop="brand" href="{$link->getManufacturerLink($product_manufacturer, $product_manufacturer->link_rewrite, $cookie->id_lang)}"><img src="{$img_manu_dir}{$product->id_manufacturer}-manufacturer_big.jpg" class="img-responsive" alt="{$product_manufacturer->name}" /></a>          
                             </div>
                         {else} 
                             <div class="span4 collection borderGrey boxHr"> 
-                                <h2>{l s='Collection'}<br/>{$category->name}</h2>
+                                <h2>{l s='Collection' mod='custommade'}<br/>{$category->name}</h2>
                                 <p class="parent_cat">{$parent_cat->name}</p>
                                 <a href="{$link->getCategoryLink($parent_cat->id)}" style="width:100%;overflow:hidden;display:block;height:179px;">
                                     <img src="{$link->getCatImageLink($parent_cat->link_rewrite, $parent_cat->id_image, 'category_default')}" alt="{$parent_cat->name}"/>
@@ -341,7 +341,7 @@
                             </div>
                         {/if}
                         <div class="span4 description borderGrey boxHr">
-                            <h2>{l s='Description'}<br/>{if $product_type}{if $product_type == 24875 || $product_type == 36 || $product_type == 37 || $product_type == 25024 || $product_type == 25023}{l s='Papier peint'}{elseif $product_type == 420}{l s='Panneau'}{elseif $product_type == 414}{l s='Frise'}{elseif $product_type == 35}{l s='Mètre linéaire'}{else}{l s='Tissu'}{/if}{/if} {$product->name|escape:'htmlall':'UTF-8'}</h2> 
+                            <h2>{l s='Description' mod='custommade'}<br/>{if $product_type}{if $product_type == 24875 || $product_type == 36 || $product_type == 37 || $product_type == 25024 || $product_type == 25023}{l s='Papier peint' mod='custommade'}{elseif $product_type == 420}{l s='Panneau' mod='custommade'}{elseif $product_type == 414}{l s='Frise' mod='custommade'}{elseif $product_type == 35}{l s='Mètre linéaire' mod='custommade'}{else}{l s='Tissu' mod='custommade'}{/if}{/if} {$product->name|escape:'htmlall':'UTF-8'}</h2> 
                          
                             <div class="texte align_center">
                                 {if $product->description != ''}
@@ -384,28 +384,28 @@
                 {/if}
             {/foreach}
             {if $lang_id == 4}
-                <li><span>{l s='Question / Conseil / Commande'}</span><br/><span><a href="mail:contact@aufildescouleurs.com">{l s='contact@aufildescouleurs.com'}</a></span></li>
+                <li><span>{l s='Question / Conseil / Commande' mod='custommade'}</span><br/><span><a href="mail:contact@aufildescouleurs.com">{l s='contact@aufildescouleurs.com' mod='custommade'}</a></span></li>
             {else}
-                <li><span>{l s='Question / Conseil / Commande'}</span><br/><span>{l s='01 73 79 78 87'}</span></li>
+                <li><span>{l s='Question / Conseil / Commande' mod='custommade'}</span><br/><span>{l s='01 73 79 78 87' mod='custommade'}</span></li>
             {/if}
             {if $lang_id == 4}
-            <li><span>{l s='Livraison'}</span><br/><span>{*{l s='10 jours'}*}{if $entrega == ''}{l s='N/A'}{else}{$entrega}{/if}</span></li>
-            <li><span>{l s='Frais de ports offerts'}</span><br/><span title="{l s='Uniquement en France métropolitaine'}">{l s='Dès 150 € d\'achat'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
+            <li><span>{l s='Livraison' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{if $entrega == ''}{l s='N/A' mod='custommade'}{else}{$entrega}{/if}</span></li>
+            <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France métropolitaine' mod='custommade'}">{l s='Dès 150 € d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
             {$HOOK_PRODUCT_TAB}
             {else}
-            <li><span>{l s='Frais de ports offerts'}</span><br/><span title="{l s='Uniquement en France métropolitaine'}">{l s='Dès 150 € d\'achat'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
-            <li><span>{l s='Livraison standard'}</span><br/><span>{*{l s='10 jours'}*}{$delai_livraison2} - {if $standard_delivery_price != '' && $standard_delivery_price > 0}{convertPrice price=$standard_delivery_price*1.2}{else}{l s='Gratuit'}{/if}</span></li>
+            <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France métropolitaine' mod='custommade'}">{l s='Dès 150 € d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
+            <li><span>{l s='Livraison standard' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{$delai_livraison2} - {if $standard_delivery_price != '' && $standard_delivery_price > 0}{convertPrice price=$standard_delivery_price*1.2}{else}{l s='Gratuit' mod='custommade'}{/if}</span></li>
             {if $delai_livraison == ''}
-                <li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='productcomments'}</span><br/><span><strong class="avis">{$comments|@count}</strong> {l s='avis sur ce produit' mod='productcomments'}</span></a></li>
+                <li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='custommade'}</span><br/><span><strong class="avis">{$comments|@count}</strong> {l s='avis sur ce produit' mod='custommade'}</span></a></li>
             {else}
-                <li><span>{l s='Livraison rapide'}</span><br/><span>{*{l s='10 jours'}*}{if $delai_livraison == ''}{l s='Non disponible'}{else}{$delai_livraison} - {if $express_delivery_price != ''}{convertPrice price=$express_delivery_price*1.2}{else}{l s='Gratuit'}{/if}{/if}</span></li>
+                <li><span>{l s='Livraison rapide' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{if $delai_livraison == ''}{l s='Non disponible' mod='custommade'}{else}{$delai_livraison} - {if $express_delivery_price != ''}{convertPrice price=$express_delivery_price*1.2}{else}{l s='Gratuit' mod='custommade'}{/if}{/if}</span></li>
             {/if}
 
             {/if}{debug}
             
     {*      {$HOOK_PRODUCT_TAB}
-     *} {*<li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='productcomments'}</span><br/><span><strong class="avis">xxx</strong> {l s='avis sur ce produit' mod='productcomments'}</span></a></li>
-            <li><a  class="open-comment-form" href="#new_comment_form"><span>{l s='Voir les avis' mod='productcomments'}</span><br/><span><strong class="avis">xxx</strong> {l s='avis sur ce produit' mod='productcomments'}</span></a></li>*}
+     *} {*<li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='custommade'}</span><br/><span><strong class="avis">xxx</strong> {l s='avis sur ce produit' mod='custommade'}</span></a></li>
+            <li><a  class="open-comment-form" href="#new_comment_form"><span>{l s='Voir les avis' mod='custommade'}</span><br/><span><strong class="avis">xxx</strong> {l s='avis sur ce produit' mod='custommade'}</span></a></li>*}
             {*if $HOOK_EXTRA_LEFT}{$HOOK_EXTRA_LEFT}{/if*}
         </ul>
     </div>

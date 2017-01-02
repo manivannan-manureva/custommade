@@ -1,52 +1,34 @@
 {*
-* 2007-2012 PrestaShop
-*
-* NOTICE OF LICENSE
-*
-* This source file is subject to the Academic Free License (AFL 3.0)
-* that is bundled with this package in the file LICENSE.txt.
-* It is also available through the world-wide-web at this URL:
-* http://opensource.org/licenses/afl-3.0.php
-* If you did not receive a copy of the license and are unable to
-* obtain it through the world-wide-web, please send an email
-* to license@prestashop.com so we can send you a copy immediately.
-*
-* DISCLAIMER
-*
-* Do not edit or add to this file if you wish to upgrade PrestaShop to newer
-* versions in the future. If you wish to customize PrestaShop for your
-* needs please refer to http://www.prestashop.com for more information.
-*
-*  @author PrestaShop SA <contact@prestashop.com>
-*  @copyright  2007-2012 PrestaShop SA
-*  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
-*  International Registered Trademark & Property of PrestaShop SA
+* @version 1.0
+* @author 202-ecommerce
+* @copyright 2016-2017 202-ecommerce
+* @license ?
 *}
 
-{capture name=path}{l s='Your shopping cart'}{/capture} 
+{capture name=path}{l s='Your shopping cart' mod='custommade'}{/capture} 
 
 {assign var='current_step' value='summary'}
 {include file="$tpl_dir./order-steps.tpl"}
 
-<h1 id="cart_title">{l s='Mon panier'} 
+<h1 id="cart_title">{l s='Mon panier' mod='custommade'} 
 {if !isset($empty)}
-<a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}" class="exclusive standard-checkout" title="{l s='Next'}">{l s='Commander'}</a>
+<a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}" class="exclusive standard-checkout" title="{l s='Next' mod='custommade'}">{l s='Commander' mod='custommade'}</a>
 {else}
-<a href="{$base_dir}" class="exclusive standard-checkout" title="{l s='Accueil'}">{l s='Accueil'}</a>
+<a href="{$base_dir}" class="exclusive standard-checkout" title="{l s='Accueil' mod='custommade'}">{l s='Accueil' mod='custommade'}</a>
 {/if}
 </h1>
 
 	{if isset($account_created)}
 		<p class="success">
-			{l s='Your account has been created.'}
+			{l s='Your account has been created.' mod='custommade'}
 		</p>
 	{/if}
 	{include file="$tpl_dir./errors.tpl"}
 
 	{if isset($empty)}
-		<p class="warning">{l s='Your shopping cart is empty.'}</p>
+		<p class="warning">{l s='Your shopping cart is empty.' mod='custommade'}</p>
 	{elseif $PS_CATALOG_MODE}
-		<p class="warning">{l s='This store has not accepted your new order.'}</p>
+		<p class="warning">{l s='This store has not accepted your new order.' mod='custommade'}</p>
 	{else}
 		<script type="text/javascript">
 		// <![CDATA[
@@ -54,23 +36,23 @@
 		var currencyRate = '{$currencyRate|floatval}';
 		var currencyFormat = '{$currencyFormat|intval}';
 		var currencyBlank = '{$currencyBlank|intval}';
-		var txtProduct = "{l s='product' js=1}";
-		var txtProducts = "{l s='products' js=1}";
+		var txtProduct = "{l s='product' mod='custommade' js=1}";
+		var txtProducts = "{l s='products' mod='custommade' js=1}";
 		var deliveryAddress = {$cart->id_address_delivery|intval};
 		// ]]>
 		</script>
-		<p style="display:none" id="emptyCartWarning" class="warning">{l s='Your shopping cart is empty.'}</p>
+		<p style="display:none" id="emptyCartWarning" class="warning">{l s='Your shopping cart is empty.' mod='custommade'}</p>
 	
 	<div id="order-detail-content" class="active table_block">
 		<div class="content_cart_summary">
 			<table id="cart_summary" class="std panier">
 				<thead>
 					<tr>
-						<th class="cart_product first_item">{l s='Product'}</th>
-						<th class="cart_description item">{l s='Description'}</th>
-						<th class="cart_unit item">{l s='Unit price'}</th>
-						<th class="cart_quantity item">{l s='Qty'}</th>
-						<th class="cart_total item" colspan="2">{l s='Total'}</th>
+						<th class="cart_product first_item">{l s='Product' mod='custommade'}</th>
+						<th class="cart_description item">{l s='Description' mod='custommade'}</th>
+						<th class="cart_unit item">{l s='Unit price' mod='custommade'}</th>
+						<th class="cart_quantity item">{l s='Qty' mod='custommade'}</th>
+						<th class="cart_total item" colspan="2">{l s='Total' mod='custommade'}</th>
 					</tr>
 				</thead>
 				
@@ -90,7 +72,7 @@
 							<tr id="product_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" class="product_customization_for_{$product.id_product}_{$product.id_product_attribute}_{$product.id_address_delivery|intval} {if $odd}odd{else}even{/if} customization alternate_item {if $product@last && $customization@last && !count($gift_products)}last_item{/if}">
 								<td></td>
 								<td colspan="3">
-									<div class="customizationHelp">{l s='We will add the selected product to this photo:'}</div>
+									<div class="customizationHelp">{l s='We will add the selected product to this photo:' mod='custommade'}</div>
 									{foreach $customization.datas as $type => $custom_data}
 										{if $type == $CUSTOMIZE_FILE}
 											<div class="customizationUploaded">
@@ -107,9 +89,9 @@
 														{if $textField.name}
 															{$textField.name}
 														{else}
-															{l s='Text #'}{$textField@index+1}
+															{l s='Text #' mod='custommade'}{$textField@index+1}
 														{/if}
-														{l s=':'} {$textField.value}
+														{l s=':' mod='custommade'} {$textField.value}
 													</li>
 												{/foreach}
 
@@ -125,14 +107,14 @@
 										{strip}<input type="hidden" value="{$customization.quantity}" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}_hidden"/>
 										<input size="2" type="text" value="{$customization.quantity}" class="cart_quantity_input" name="quantity_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}"/>
 										<div class="cart_quantity_button">
-										<a rel="nofollow" class="cart_quantity_up" id="cart_quantity_up_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "add&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_address_delivery={$product.id_address_delivery}&amp;id_customization={$id_customization}&amp;token={$token_cart}")}" title="{l s='Add'}"><img src="{$img_dir}icon/quantity_up.gif" alt="{l s='Add'}" /></a><br />
+										<a rel="nofollow" class="cart_quantity_up" id="cart_quantity_up_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "add&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_address_delivery={$product.id_address_delivery}&amp;id_customization={$id_customization}&amp;token={$token_cart}")}" title="{l s='Add' mod='custommade'}"><img src="{$img_dir}icon/quantity_up.gif" alt="{l s='Add' mod='custommade'}" /></a><br />
 										{if $product.minimal_quantity < ($customization.quantity -$quantityDisplayed) OR $product.minimal_quantity <= 1}
-										<a rel="nofollow" class="cart_quantity_down" id="cart_quantity_down_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "add&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_address_delivery={$product.id_address_delivery}&amp;id_customization={$id_customization}&amp;op=down&amp;token={$token_cart}")}" title="{l s='Subtract'}">
-											<img src="{$img_dir}icon/quantity_down.gif" alt="{l s='Subtract'}" />
+										<a rel="nofollow" class="cart_quantity_down" id="cart_quantity_down_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "add&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_address_delivery={$product.id_address_delivery}&amp;id_customization={$id_customization}&amp;op=down&amp;token={$token_cart}")}" title="{l s='Subtract' mod='custommade'}">
+											<img src="{$img_dir}icon/quantity_down.gif" alt="{l s='Subtract' mod='custommade'}" />
 										</a>
 										{else}
-										<a class="cart_quantity_down" style="opacity: 0.3;" id="cart_quantity_down_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}" href="#" title="{l s='Subtract'}">
-											<img src="{$img_dir}icon/quantity_down.gif" alt="{l s='Subtract'}" />
+										<a class="cart_quantity_down" style="opacity: 0.3;" id="cart_quantity_down_{$product.id_product}_{$product.id_product_attribute}_{$id_customization}" href="#" title="{l s='Subtract' mod='custommade'}">
+											<img src="{$img_dir}icon/quantity_down.gif" alt="{l s='Subtract' mod='custommade'}" />
 										</a>
 										{/if}
 										</div>{/strip}
@@ -142,7 +124,7 @@
 									{if isset($cannotModify) AND $cannotModify == 1}
 									{else}
 										<div>
-											<a rel="nofollow" class="cart_quantity_delete" id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "delete&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$id_customization}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")}">{l s='Delete'}</a>
+											<a rel="nofollow" class="cart_quantity_delete" id="{$product.id_product}_{$product.id_product_attribute}_{$id_customization}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "delete&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$id_customization}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")}">{l s='Delete' mod='custommade'}</a>
 										</div>
 									{/if}
 								</td>
@@ -168,7 +150,7 @@
 				{foreach $discounts as $discount}
 					<tr class="cart_discount {if $discount@last}last_item{elseif $discount@first}first_item{else}item{/if}" id="cart_discount_{$discount.id_discount}">
 						<td class="cart_discount_name" colspan="4" style="text-align:left">{$discount.name} 
-						{if strlen($discount.code)}<a href="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}?deleteDiscount={$discount.id_discount}" class="price_discount_delete pull-right" title="{l s='Delete'}">{l s='Delete'}</a>{/if}
+						{if strlen($discount.code)}<a href="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}?deleteDiscount={$discount.id_discount}" class="price_discount_delete pull-right" title="{l s='Delete' mod='custommade'}">{l s='Delete' mod='custommade'}</a>{/if}
 						</td>
 						{*<td class="cart_discount_price">
 							<span class="price-discount price">{if !$priceDisplay}{displayPrice price=$discount.value_real*-1}{else}{displayPrice price=$discount.value_tax_exc*-1}{/if}</span>
@@ -185,17 +167,17 @@
 			</table>
 		</div>
 		
-		<h2>{l s='Récapitulatif'}</h2>
+		<h2>{l s='Récapitulatif' mod='custommade'}</h2>
 		<div class="bg_recapitulatif">
 			<table class="std recapitulatif">
 				<tfoot>
-					<tr><td colspan="4"><strong class="uppercase">{l s='Nombre d\'articles'}</strong></td><td><span id="summary_products_quantity">{$productNumber}</span></td></tr> 
+					<tr><td colspan="4"><strong class="uppercase">{l s='Nombre d\'articles' mod='custommade'}</strong></td><td><span id="summary_products_quantity">{$productNumber}</span></td></tr> 
 					<tr class="cart_total_voucher total_line" {if $total_discounts == 0}style="display:none"{/if}>
 						<td colspan="4">
 						<strong class="uppercase">{if $use_taxes && $display_tax_label}
-							{l s='Total réductions HT:'}
+							{l s='Total réductions HT:' mod='custommade'}
 						{else}
-							{l s='Total réductions TTC'}
+							{l s='Total réductions TTC' mod='custommade'}
 						{/if}</strong>
 						</td>
 						<td class="price-discount price" id="total_discount">
@@ -209,62 +191,62 @@
 					</tr> 
 					{if $total_shipping_tax_exc <= 0 && !isset($virtualCart)}
 						<tr class="cart_total_delivery total_line">
-							<td colspan="4"><strong class="uppercase">{l s='Transport'}</strong>
-								<br/><i>{l s='Vous pourrez choisir le mode de livraison souhaité lors de la prochaine étape.'}</i>
-								<br/><i>{l s='Les frais de port sont offerts pour les commandes d\'échantillons et pour les autres commandes à partir de 150€.'}</i></td>
+							<td colspan="4"><strong class="uppercase">{l s='Transport' mod='custommade'}</strong>
+								<br/><i>{l s='Vous pourrez choisir le mode de livraison souhaité lors de la prochaine étape.' mod='custommade'}</i>
+								<br/><i>{l s='Les frais de port sont offerts pour les commandes d\'échantillons et pour les autres commandes à partir de 150€.' mod='custommade'}</i></td>
 							</td>
-							<td class="price" id="total_shipping">{l s='Gratuit!'}</td>
+							<td class="price" id="total_shipping">{l s='Gratuit!' mod='custommade'}</td>
 						</tr>
 					{else}
 						{if $use_taxes}
 							{if $priceDisplay}
 								<tr class="cart_total_delivery total_line" {if $total_shipping_tax_exc <= 0} style="display:none;"{/if}>
-								<td colspan="4"><strong class="uppercase ht">{l s='Transport'}</strong>
-									<br/><i>{l s='Vous pourrez choisir le mode de livraison souhaité lors de la prochaine étape.'}</i>
-									<br/><i>{l s='Les frais de port sont offerts pour les commandes d\'échantillons et pour les autres commandes à partir de 150€.'}</i></td>
+								<td colspan="4"><strong class="uppercase ht">{l s='Transport' mod='custommade'}</strong>
+									<br/><i>{l s='Vous pourrez choisir le mode de livraison souhaité lors de la prochaine étape.' mod='custommade'}</i>
+									<br/><i>{l s='Les frais de port sont offerts pour les commandes d\'échantillons et pour les autres commandes à partir de 150€.' mod='custommade'}</i></td>
 									<td class="price" id="total_shipping">{displayPrice price=$total_shipping_tax_exc}</td>
 								</tr>
 							{else}
 								<tr class="cart_total_delivery total_line"{if $total_shipping <= 0} style="display:none;"{/if}>
-								<td colspan="4"><strong class="uppercase ttc">{l s='Transport'}</strong>
-									<br/><i>{l s='Vous pourrez choisir le mode de livraison souhaité lors de la prochaine étape.'}</i>
-									<br/><i>{l s='Les frais de port sont offerts pour les commandes d\'échantillons et pour les autres commandes à partir de 150€.'}</i></td>
+								<td colspan="4"><strong class="uppercase ttc">{l s='Transport' mod='custommade'}</strong>
+									<br/><i>{l s='Vous pourrez choisir le mode de livraison souhaité lors de la prochaine étape.' mod='custommade'}</i>
+									<br/><i>{l s='Les frais de port sont offerts pour les commandes d\'échantillons et pour les autres commandes à partir de 150€.' mod='custommade'}</i></td>
 									<td class="price" id="total_shipping" >{displayPrice price=$total_shipping}</td>
 								</tr>
 							{/if}
 						{else}
 							<tr class="cart_total_delivery total_line"{if $total_shipping_tax_exc <= 0} style="display:none;"{/if}>
-								<td colspan="4"><strong class="uppercase">{l s='Transport'}</strong>
-									<br/><i>{l s='Vous pourrez choisir le mode de livraison souhaité lors de la prochaine étape.'}</i>
-									<br/><i>{l s='Les frais de port sont offerts pour les commandes d\'échantillons et pour les autres commandes à partir de 150€.'}</i></td>
+								<td colspan="4"><strong class="uppercase">{l s='Transport' mod='custommade'}</strong>
+									<br/><i>{l s='Vous pourrez choisir le mode de livraison souhaité lors de la prochaine étape.' mod='custommade'}</i>
+									<br/><i>{l s='Les frais de port sont offerts pour les commandes d\'échantillons et pour les autres commandes à partir de 150€.' mod='custommade'}</i></td>
 								<td class="price" id="total_shipping" >{displayPrice price=$total_shipping_tax_exc}</td>
 							</tr>
 						{/if}
 					{/if}
 					{if $use_taxes}
 					<tr class="cart_total_price total_line">
-						<td colspan="4"><strong class="uppercase">{l s='Total HT'}</strong></td>
+						<td colspan="4"><strong class="uppercase">{l s='Total HT' mod='custommade'}</strong></td>
 						<td class="price" id="total_price_without_tax">{displayPrice price=$total_price_without_tax}</td>
 					</tr>
 					<tr class="cart_total_tax total_line">
-						<td colspan="4"><strong class="uppercase">{l s='Total taxes:'}</strong></td>
+						<td colspan="4"><strong class="uppercase">{l s='Total taxes:' mod='custommade'}</strong></td>
 						<td class="price" id="total_tax">{displayPrice price=$total_tax}</td>
 					</tr>
 					{/if}
 					<tr class="cart_total_price"> 
 						{if $use_taxes}
 						<td colspan="4" class="price total_price_container" id="total_price_container">
-							<strong class="uppercase">{l s='Total TTC :'}</strong></td>
+							<strong class="uppercase">{l s='Total TTC :' mod='custommade'}</strong></td>
 						<td><span id="total_price">{displayPrice price=$total_price}</span></td>
 						{else}
-						<td colspan="4" class="price total_price_container" id="total_price_container"><strong class="uppercase">{l s='Total:'}</strong></td>
+						<td colspan="4" class="price total_price_container" id="total_price_container"><strong class="uppercase">{l s='Total:' mod='custommade'}</strong></td>
 						<td><span id="total_price">{displayPrice price=$total_price_without_tax}</span></td>
 						{/if}
 					</tr>
 				</tfoot>
 			</table>
 		</div>
-		<h2>{l s='Bons de réduction'}</h2>
+		<h2>{l s='Bons de réduction' mod='custommade'}</h2>
 		<div class="bg_reductions">
 			<table class="std reductions">
 				<tfoot>
@@ -280,14 +262,14 @@
 						{/if}
 							<form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
 								<fieldset>  
-										<label for="discount_name">{l s='Code:'}</label>
+										<label for="discount_name">{l s='Code:' mod='custommade'}</label>
 										<input type="text" class="discount_name" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" /> 
-										<input type="submit" name="submitAddDiscount" id="submitAddDiscount" value="{l s='Ajouter ce code'}" class="button" />
+										<input type="submit" name="submitAddDiscount" id="submitAddDiscount" value="{l s='Ajouter ce code' mod='custommade'}" class="button" />
 								</fieldset>
 								<input type="hidden" name="submitDiscount" />
 							</form>
 									{*if $displayVouchers}
-										<p id="title" class="title_offers">{l s='Take advantage of our offers:'}</p>
+										<p id="title" class="title_offers">{l s='Take advantage of our offers:' mod='custommade'}</p>
 										<div id="display_cart_vouchers">
 										{foreach $displayVouchers as $voucher}
 											{if $voucher.code != ''}<span onclick="$('#discount_name').val('{$voucher.code}');$('#voucher input.button').trigger('click');return false;" class="voucher_name">{$voucher.code}</span> - {/if}{$voucher.name}<br />
@@ -307,14 +289,14 @@
 	{if $show_option_allow_separate_package}
 	<p>
 		<input type="checkbox" name="allow_seperated_package" id="allow_seperated_package" {if $cart->allow_seperated_package}checked="checked"{/if} />
-		<label for="allow_seperated_package">{l s='Send the available products first'}</label>
+		<label for="allow_seperated_package">{l s='Send the available products first' mod='custommade'}</label>
 	</p>
 	{/if}
 	{if !$opc}
 		{if Configuration::get('PS_ALLOW_MULTISHIPPING')}
 			<p>
 				<input type="checkbox" {if $multi_shipping}checked="checked"{/if} id="enable-multishipping" />
-				<label for="enable-multishipping">{l s='I want to specify a delivery address for each individual product.'}</label>
+				<label for="enable-multishipping">{l s='I want to specify a delivery address for each individual product.' mod='custommade'}</label>
 			</p>
 		{/if}
 	{/if}
@@ -340,12 +322,12 @@
  	<div class="content_cart_navigation">
 		<p class="cart_navigation">
 			{if !$opc}
-				<a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}" class="exclusive standard-checkout" title="{l s='Next'}">{l s='Commander'}</a>
+				<a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}" class="exclusive standard-checkout" title="{l s='Next' mod='custommade'}">{l s='Commander' mod='custommade'}</a>
 				{*if Configuration::get('PS_ALLOW_MULTISHIPPING')}
-					<a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}&amp;multi-shipping=1" class="multishipping-button multishipping-checkout exclusive" title="{l s='Next'}">{l s='Commander'}</a>
+					<a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}&amp;multi-shipping=1" class="multishipping-button multishipping-checkout exclusive" title="{l s='Next' mod='custommade'}">{l s='Commander' mod='custommade'}</a>
 				{/if*}
 			{/if}
-			<a href="{if (isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order.php')) || isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order-opc') || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'htmlall':'UTF-8'|secureReferrer}{/if}" class="button_large" title="{l s='Continue shopping'}">{l s='Continue shopping'}</a>
+			<a href="{if (isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order.php')) || isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order-opc') || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'htmlall':'UTF-8'|secureReferrer}{/if}" class="button_large" title="{l s='Continue shopping' mod='custommade'}">{l s='Continue shopping' mod='custommade'}</a>
 		</p>
 	</div>
 		{*if !empty($HOOK_SHOPPING_CART_EXTRA)}
