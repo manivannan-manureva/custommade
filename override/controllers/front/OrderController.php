@@ -59,7 +59,7 @@ class OrderController extends OrderControllerCore
             case OrderController::STEP_SUMMARY_EMPTY_CART:
                 $this->context->smarty->assign('empty', 1);
                 $this->setTemplate(_PS_THEME_DIR_.'shopping-cart.tpl');
-            break;
+                break;
 
             case OrderController::STEP_ADDRESSES:
                 $this->_assignAddress();
@@ -71,7 +71,7 @@ class OrderController extends OrderControllerCore
                 } else {
                     $this->setTemplate(_PS_THEME_DIR_.'order-address.tpl');
                 }
-            break;
+                break;
 
             case OrderController::STEP_DELIVERY:
                 if (Tools::isSubmit('processAddress')) {
@@ -80,7 +80,7 @@ class OrderController extends OrderControllerCore
                 $this->autoStep();
                 $this->_assignCarrier();
                 $this->setTemplate(_PS_THEME_DIR_.'order-carrier.tpl');
-            break;
+                break;
 
             case OrderController::STEP_PAYMENT:
                 // Check that the conditions (so active) were accepted by the customer
@@ -135,13 +135,12 @@ class OrderController extends OrderControllerCore
                 // assign some informations to display cart
                 $this->_assignSummaryInformations();
                 $this->setTemplate(_PS_THEME_DIR_.'order-payment.tpl');
-            break;
+                break;
 
             default:
                 $this->_assignSummaryInformations();
                 //$this->setTemplate(_PS_THEME_DIR_.'shopping-cart.tpl');
                 $this->setTemplate('modules/custommade/views/templates/front/shopping-cart.tpl');
-            break;
         }
     }
 }
