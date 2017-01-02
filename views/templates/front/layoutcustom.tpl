@@ -396,7 +396,7 @@
             <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France métropolitaine' mod='custommade'}">{l s='Dès 150 € d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
             <li><span>{l s='Livraison standard' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{$delai_livraison2|escape:'htmlall':'UTF-8'} - {if $standard_delivery_price != '' && $standard_delivery_price > 0}{convertPrice price=$standard_delivery_price*1.2}{else}{l s='Gratuit' mod='custommade'}{/if}</span></li>
             {if $delai_livraison == ''}
-                <li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='custommade'}</span><br/><span><strong class="avis">{$comments|@count}</strong> {l s='avis sur ce produit' mod='custommade'}</span></a></li>
+                <li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='custommade'}</span><br/><span><strong class="avis">{$comments|@count|escape:'htmlall':'UTF-8'}</strong> {l s='avis sur ce produit' mod='custommade'}</span></a></li>
             {else}
                 <li><span>{l s='Livraison rapide' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{if $delai_livraison == ''}{l s='Non disponible' mod='custommade'}{else}{$delai_livraison|escape:'htmlall':'UTF-8'} - {if $express_delivery_price != ''}{convertPrice price=$express_delivery_price*1.2}{else}{l s='Gratuit' mod='custommade'}{/if}{/if}</span></li>
             {/if}
