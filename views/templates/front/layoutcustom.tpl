@@ -306,6 +306,54 @@
                     </div><div class="clearfix"></div>
                     
                 </div>
+<div class="clear"></div>
+                
+                <div class="box3">
+                        <div class="clear span4 features borderGrey boxHr">
+                            <h2>{l s='Fiche technique'}<br/>{if $product_type}{if $product_type == 24875 || $product_type == 36 || $product_type == 37 || $product_type == 25024 || $product_type == 25023}{l s='Papier peint'}{elseif $product_type == 420}{l s='Panneau'}{elseif $product_type == 414}{l s='Frise'}{elseif $product_type == 35}{l s='Mètre linéaire'}{else}{l s='Tissu'}{/if}{/if} {$product->name|escape:'htmlall':'UTF-8'}</h2> 
+                            
+                            <div class="texte">
+                                <ul>
+                                    
+                                    {foreach from=$features item=feature}
+                                        {if isset($feature.value) && $feature.id_feature != 2 && $feature.id_feature != 1 && $feature.id_feature != 3 && $feature.id_feature != 7 & $feature.id_feature != 18 & $feature.id_feature != 17 & $feature.id_feature != 28 & $feature.id_feature != 29 & $feature.id_feature != 30}
+                                                <li><strong class="span2">{$feature.name|escape:'htmlall':'UTF-8'}</strong><span class="span2">{$feature.value|escape:'htmlall':'UTF-8'}</span></li>
+                                        {/if}
+                                    {/foreach}
+                                    {if $lang_id == 4}
+                                        <li><strong class="span2">{l s='Collection'}</strong><span class="span2">{$category->name}</span></li>
+                                    {/if}
+                                </ul>
+                            </div> 
+                        </div>
+                        {if $lang_id == 4}
+                            <div class="span4 collection borderGrey boxHr"> 
+                                <h2>{l s='Manufacturer'}<br/>{$product->manufacturer_name}</h2>
+                                <a itemprop="brand" href="{$link->getManufacturerLink($product_manufacturer, $product_manufacturer->link_rewrite, $cookie->id_lang)}"><img src="{$img_manu_dir}{$product->id_manufacturer}-manufacturer_big.jpg" class="img-responsive" alt="{$product_manufacturer->name}" /></a>          
+                            </div>
+                        {else} 
+                            <div class="span4 collection borderGrey boxHr"> 
+                                <h2>{l s='Collection'}<br/>{$category->name}</h2>
+                                <p class="parent_cat">{$parent_cat->name}</p>
+                                <a href="{$link->getCategoryLink($parent_cat->id)}" style="width:100%;overflow:hidden;display:block;height:179px;">
+                                    <img src="{$link->getCatImageLink($parent_cat->link_rewrite, $parent_cat->id_image, 'category_default')}" alt="{$parent_cat->name}"/>
+                                </a>
+                            </div>
+                        {/if}
+                        <div class="span4 description borderGrey boxHr">
+                            <h2>{l s='Description'}<br/>{if $product_type}{if $product_type == 24875 || $product_type == 36 || $product_type == 37 || $product_type == 25024 || $product_type == 25023}{l s='Papier peint'}{elseif $product_type == 420}{l s='Panneau'}{elseif $product_type == 414}{l s='Frise'}{elseif $product_type == 35}{l s='Mètre linéaire'}{else}{l s='Tissu'}{/if}{/if} {$product->name|escape:'htmlall':'UTF-8'}</h2> 
+                         
+                            <div class="texte align_center">
+                                {if $product->description != ''}
+                                    {$product->description}
+                                {else}
+                                    {$product->description_short}
+                                {/if}
+                            </div>
+                        </div>
+                        
+                </div>
+                <div class="clear"></div>
 
                 <div class="custom-product-detail" id="custom-product-detail">
                     <h1 class="title-module-preview">projets speciaux</h1>
@@ -316,9 +364,55 @@
                         </p>
                     </div>                    
                 </div>
+
             </div>
+
         </div>
     </form>
+    <div class="clear"></div>
+    <div class="boxDotted">
+        <ul>
+            {foreach from=$features item=feature}
+                {if $feature.id_feature == 29}
+                    {assign var=delai_livraison value=$feature.value}
+                {/if}
+                {if $feature.id_feature == 30}
+                    {assign var=delai_livraison2 value=$feature.value}
+                {/if}
+                {if $feature.id_feature == 28}
+                    {assign var=entrega value=$feature.value}
+                {/if}
+            {/foreach}
+            {if $lang_id == 4}
+                <li><span>{l s='Question / Conseil / Commande'}</span><br/><span><a href="mail:contact@aufildescouleurs.com">{l s='contact@aufildescouleurs.com'}</a></span></li>
+            {else}
+                <li><span>{l s='Question / Conseil / Commande'}</span><br/><span>{l s='01 73 79 78 87'}</span></li>
+            {/if}
+            {if $lang_id == 4}
+            <li><span>{l s='Livraison'}</span><br/><span>{*{l s='10 jours'}*}{if $entrega == ''}{l s='N/A'}{else}{$entrega}{/if}</span></li>
+            <li><span>{l s='Frais de ports offerts'}</span><br/><span title="{l s='Uniquement en France métropolitaine'}">{l s='Dès 150 € d\'achat'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
+            {$HOOK_PRODUCT_TAB}
+            {else}
+            <li><span>{l s='Frais de ports offerts'}</span><br/><span title="{l s='Uniquement en France métropolitaine'}">{l s='Dès 150 € d\'achat'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
+            <li><span>{l s='Livraison standard'}</span><br/><span>{*{l s='10 jours'}*}{$delai_livraison2} - {if $standard_delivery_price != '' && $standard_delivery_price > 0}{convertPrice price=$standard_delivery_price*1.2}{else}{l s='Gratuit'}{/if}</span></li>
+            {if $delai_livraison == ''}
+                <li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='productcomments'}</span><br/><span><strong class="avis">{$comments|@count}</strong> {l s='avis sur ce produit' mod='productcomments'}</span></a></li>
+            {else}
+                <li><span>{l s='Livraison rapide'}</span><br/><span>{*{l s='10 jours'}*}{if $delai_livraison == ''}{l s='Non disponible'}{else}{$delai_livraison} - {if $express_delivery_price != ''}{convertPrice price=$express_delivery_price*1.2}{else}{l s='Gratuit'}{/if}{/if}</span></li>
+            {/if}
+
+            {/if}{debug}
+            
+    {*      {$HOOK_PRODUCT_TAB}
+     *} {*<li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='productcomments'}</span><br/><span><strong class="avis">xxx</strong> {l s='avis sur ce produit' mod='productcomments'}</span></a></li>
+            <li><a  class="open-comment-form" href="#new_comment_form"><span>{l s='Voir les avis' mod='productcomments'}</span><br/><span><strong class="avis">xxx</strong> {l s='avis sur ce produit' mod='productcomments'}</span></a></li>*}
+            {*if $HOOK_EXTRA_LEFT}{$HOOK_EXTRA_LEFT}{/if*}
+        </ul>
+    </div>
+    <div class="clear"></div>
+    <div id="HOOK_PRODUCT_TAB_CONTENT">
+        {$HOOK_PRODUCT_TAB_CONTENT}
+    </div>
 {/if}
 
 <script>
