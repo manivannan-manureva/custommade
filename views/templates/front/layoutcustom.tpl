@@ -295,9 +295,9 @@
                         </div>
                         <div class="span2 clear product_social">
                             <ul class="social align_center">{strip}
-                                    <li><a title="Facebook" href="https://www.facebook.com/sharer.php?u={$link->getProductLink($product)|rawurlencode}&amp;t={$product->name} sur Au Fil des Couleurs" class="facebook-button" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"><img src="{$img_dir}social_fb.png" alt="Facebook" /></a></li>
-                                    <li><a title="Twitter" href="https://twitter.com/share?url={$link->getProductLink($product)|rawurlencode}&amp;text={$product->name} sur Au Fil des Couleurs" class="tweet-button" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"><img src="{$img_dir}social_twitter.png" alt="Twitter" /></a></li>
-                                    <li><a title="Pinterest" href="https://www.pinterest.com/pin/create/button/?url={$link->getProductLink($product)|rawurlencode}&amp;media={$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox_default')|rawurlencode}&amp;description={$product->name} sur Au Fil des Couleurs" class="pin-it-button" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=350,width=850');return false;"><img src="{$img_dir}social_pint.png" alt="Pinterest" /></a></li>
+                                    <li><a title="Facebook" href="https://www.facebook.com/sharer.php?u={$link->getProductLink($product)|rawurlencode}&amp;t={$product->name|escape:'htmlall':'UTF-8'} sur Au Fil des Couleurs" class="facebook-button" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"><img src="{$img_dir}social_fb.png" alt="Facebook" /></a></li>
+                                    <li><a title="Twitter" href="https://twitter.com/share?url={$link->getProductLink($product)|rawurlencode}&amp;text={$product->name|escape:'htmlall':'UTF-8'} sur Au Fil des Couleurs" class="tweet-button" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;"><img src="{$img_dir}social_twitter.png" alt="Twitter" /></a></li>
+                                    <li><a title="Pinterest" href="https://www.pinterest.com/pin/create/button/?url={$link->getProductLink($product)|rawurlencode}&amp;media={$link->getImageLink($product->link_rewrite, $cover.id_image, 'thickbox_default')|rawurlencode}&amp;description={$product->name|escape:'htmlall':'UTF-8'} sur Au Fil des Couleurs" class="pin-it-button" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=350,width=850');return false;"><img src="{$img_dir}social_pint.png" alt="Pinterest" /></a></li>
                                     {*<li><a title="Google +" href="https://plus.google.com/share?url={$link->getProductLink($product)|rawurlencode}&amp;hl=fr" class="google-button" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img src="{$img_dir}social_google.png" alt="Google" /></a></li>*}				
                                     <li class="print"><a onclick="$.get('{$img_dir}blank.gif');" href="javascript:print();"><img src="{$img_dir}social_print.png" alt="{l s='Print' mod='custommade'}" /></a></li>
                             {/strip}
@@ -329,14 +329,14 @@
                         {if $lang_id == 4}
                             <div class="span4 collection borderGrey boxHr"> 
                                 <h2>{l s='Manufacturer' mod='custommade'}<br/>{$product->manufacturer_name|escape:'htmlall':'UTF-8'}</h2>
-                                <a itemprop="brand" href="{$link->getManufacturerLink($product_manufacturer, $product_manufacturer->link_rewrite, $cookie->id_lang)}"><img src="{$img_manu_dir}{$product->id_manufacturer}-manufacturer_big.jpg" class="img-responsive" alt="{$product_manufacturer->name|escape:'htmlall':'UTF-8'}" /></a>          
+                                <a itemprop="brand" href="{$link->getManufacturerLink($product_manufacturer, $product_manufacturer->link_rewrite, $cookie->id_lang)|escape:'htmlall':'UTF-8'}"><img src="{$img_manu_dir}{$product->id_manufacturer|intval}-manufacturer_big.jpg" class="img-responsive" alt="{$product_manufacturer->name|escape:'htmlall':'UTF-8'}" /></a>          
                             </div>
                         {else} 
                             <div class="span4 collection borderGrey boxHr"> 
                                 <h2>{l s='Collection' mod='custommade'}<br/>{$category->name|escape:'htmlall':'UTF-8'}</h2>
                                 <p class="parent_cat">{$parent_cat->name|escape:'htmlall':'UTF-8'}</p>
                                 <a href="{$link->getCategoryLink($parent_cat->id)}" style="width:100%;overflow:hidden;display:block;height:179px;">
-                                    <img src="{$link->getCatImageLink($parent_cat->link_rewrite, $parent_cat->id_image, 'category_default')}" alt="{$parent_cat->name|escape:'htmlall':'UTF-8'}"/>
+                                    <img src="{$link->getCatImageLink($parent_cat->link_rewrite, $parent_cat->id_image, 'category_default')|escape:'htmlall':'UTF-8'}" alt="{$parent_cat->name|escape:'htmlall':'UTF-8'}"/>
                                 </a>
                             </div>
                         {/if}

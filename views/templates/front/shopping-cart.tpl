@@ -124,7 +124,7 @@
                                     {if isset($cannotModify) AND $cannotModify == 1}
                                     {else}
                                         <div>
-                                            <a rel="nofollow" class="cart_quantity_delete" id="{$product.id_product|intval}_{$product.id_product_attribute|intval}_{$id_customization}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "delete&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$id_customization}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'htmlall':'UTF-8'}">{l s='Delete' mod='custommade'}</a>
+                                            <a rel="nofollow" class="cart_quantity_delete" id="{$product.id_product|intval}_{$product.id_product_attribute|intval}_{$id_customization}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "delete&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$id_customization|intval}&amp;id_address_delivery={$product.id_address_delivery|intval}&amp;token={$token_cart}")|escape:'htmlall':'UTF-8'}">{l s='Delete' mod='custommade'}</a>
                                         </div>
                                     {/if}
                                 </td>
@@ -150,7 +150,7 @@
                 {foreach $discounts as $discount}
                     <tr class="cart_discount {if $discount@last}last_item{elseif $discount@first}first_item{else}item{/if}" id="cart_discount_{$discount.id_discount|intval}">
                         <td class="cart_discount_name" colspan="4" style="text-align:left">{$discount.name|escape:'htmlall':'UTF-8'} 
-                        {if strlen($discount.code)}<a href="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}?deleteDiscount={$discount.id_discount|intval}" class="price_discount_delete pull-right" title="{l s='Delete' mod='custommade'}">{l s='Delete' mod='custommade'}</a>{/if}
+                        {if strlen($discount.code)}<a href="{if $opc}{$link->getPageLink('order-opc', true)|escape:'htmlall':'UTF-8'}{else}{$link->getPageLink('order', true)|escape:'htmlall':'UTF-8'}{/if}?deleteDiscount={$discount.id_discount|intval}" class="price_discount_delete pull-right" title="{l s='Delete' mod='custommade'}">{l s='Delete' mod='custommade'}</a>{/if}
                         </td>
                         {*<td class="cart_discount_price">
                             <span class="price-discount price">{if !$priceDisplay}{displayPrice price=$discount.value_real*-1}{else}{displayPrice price=$discount.value_tax_exc*-1}{/if}</span>
@@ -260,10 +260,10 @@
                             {/foreach}
                             </ul>
                         {/if}
-                            <form action="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}" method="post" id="voucher">
+                            <form action="{if $opc}{$link->getPageLink('order-opc', true)|escape:'htmlall':'UTF-8'}{else}{$link->getPageLink('order', true)|escape:'htmlall':'UTF-8'}{/if}" method="post" id="voucher">
                                 <fieldset>  
                                         <label for="discount_name">{l s='Code:' mod='custommade'}</label>
-                                        <input type="text" class="discount_name" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name}{/if}" /> 
+                                        <input type="text" class="discount_name" id="discount_name" name="discount_name" value="{if isset($discount_name) && $discount_name}{$discount_name|escape:'htmlall':'UTF-8'}{/if}" /> 
                                         <input type="submit" name="submitAddDiscount" id="submitAddDiscount" value="{l s='Ajouter ce code' mod='custommade'}" class="button" />
                                 </fieldset>
                                 <input type="hidden" name="submitDiscount" />
@@ -322,12 +322,12 @@
     <div class="content_cart_navigation">
         <p class="cart_navigation">
             {if !$opc}
-                <a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}" class="exclusive standard-checkout" title="{l s='Next' mod='custommade'}">{l s='Commander' mod='custommade'}</a>
+                <a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'htmlall':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'htmlall':'UTF-8'}{/if}" class="exclusive standard-checkout" title="{l s='Next' mod='custommade'}">{l s='Commander' mod='custommade'}</a>
                 {*if Configuration::get('PS_ALLOW_MULTISHIPPING')}
-                    <a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')}{else}{$link->getPageLink('order', true, NULL, 'step=1')}{/if}&amp;multi-shipping=1" class="multishipping-button multishipping-checkout exclusive" title="{l s='Next' mod='custommade'}">{l s='Commander' mod='custommade'}</a>
+                    <a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'htmlall':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'htmlall':'UTF-8'}{/if}&amp;multi-shipping=1" class="multishipping-button multishipping-checkout exclusive" title="{l s='Next' mod='custommade'}">{l s='Commander' mod='custommade'}</a>
                 {/if*}
             {/if}
-            <a href="{if (isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order.php')) || isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order-opc') || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')}{else}{$smarty.server.HTTP_REFERER|escape:'htmlall':'UTF-8'|secureReferrer}{/if}" class="button_large" title="{l s='Continue shopping' mod='custommade'}">{l s='Continue shopping' mod='custommade'}</a>
+            <a href="{if (isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order.php')) || isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order-opc') || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')|escape:'htmlall':'UTF-8'}{else}{$smarty.server.HTTP_REFERER|escape:'htmlall':'UTF-8'|secureReferrer}{/if}" class="button_large" title="{l s='Continue shopping' mod='custommade'}">{l s='Continue shopping' mod='custommade'}</a>
         </p>
     </div>
         {*if !empty($HOOK_SHOPPING_CART_EXTRA)}
