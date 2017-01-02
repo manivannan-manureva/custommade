@@ -414,6 +414,12 @@
         {$HOOK_PRODUCT_TAB_CONTENT}
     </div>
 {/if}
+    
+<div id="image-block" style="display:none;">
+    <div id="view_full_size">
+        <img id="bigpic" src="{$image_direct_url|escape:'htmlall':'UTF-8'}" alt="Picture"/>
+    </div>
+</div>
 
 <script>
 
