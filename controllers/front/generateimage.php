@@ -71,7 +71,6 @@ class CustomMadeGenerateimageModuleFrontController extends ModuleFrontController
                 $updateStatus = 'UPDATE ' . _DB_PREFIX_ . 'options SET status = "image_error" WHERE 1 and id = "' . $id . '"';
                 DB::getInstance()->Execute($updateStatus);
             }
-            die;
         }
         /* Unlink temp images */
         $scanPath = 'modules/custommade/tmp';
