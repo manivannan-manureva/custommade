@@ -7,7 +7,7 @@
 
 <tr id="product_{$product.id_product|intval}_{$product.id_product_attribute|intval}_0_{$product.id_address_delivery|intval}{if !empty($product.gift)}_gift{/if}" class="{if isset($productLast) && $productLast && (!isset($ignoreProductLast) || !$ignoreProductLast)}last_item{elseif isset($productFirst) && $productFirst}first_item{/if} {if isset($customizedDatas.$productId.$productAttributeId) AND $quantityDisplayed == 0}alternate_item{/if} cart_item address_{$product.id_address_delivery|intval} {if $odd}odd{else}even{/if}">
 	<td class="cart_product">
-		<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute)|escape:'htmlall':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'medium_default')}" alt="{Product::getLegendImageByProductId($product.id_product)|escape:'htmlall':'UTF-8'}" /></a>
+		<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop, $product.id_product_attribute)|escape:'htmlall':'UTF-8'}"><img src="{$link->getImageLink($product.link_rewrite, $product.id_image, 'medium_default')|escape:'htmlall':'UTF-8'}" alt="{Product::getLegendImageByProductId($product.id_product)|escape:'htmlall':'UTF-8'}" /></a>
 	</td>
 	<td class="cart_description">
 		<p class="s_title_block"><a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop)|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}<span class="hidden for_mobile"> {if $product.reference}- {$product.reference|escape:'htmlall':'UTF-8'}{/if}</span></a></p>

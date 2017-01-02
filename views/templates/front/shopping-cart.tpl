@@ -14,7 +14,7 @@
 {if !isset($empty)}
 <a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'htmlall':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'htmlall':'UTF-8'}{/if}" class="exclusive standard-checkout" title="{l s='Next' mod='custommade'}">{l s='Commander' mod='custommade'}</a>
 {else}
-<a href="{$base_dir}" class="exclusive standard-checkout" title="{l s='Accueil' mod='custommade'}">{l s='Accueil' mod='custommade'}</a>
+<a href="{$base_dir|escape:'htmlall':'UTF-8'}" class="exclusive standard-checkout" title="{l s='Accueil' mod='custommade'}">{l s='Accueil' mod='custommade'}</a>
 {/if}
 </h1>
 
@@ -124,7 +124,7 @@
                                     {if isset($cannotModify) AND $cannotModify == 1}
                                     {else}
                                         <div>
-                                            <a rel="nofollow" class="cart_quantity_delete" id="{$product.id_product|intval}_{$product.id_product_attribute|intval}_{$id_customization}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "delete&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$id_customization}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")}">{l s='Delete' mod='custommade'}</a>
+                                            <a rel="nofollow" class="cart_quantity_delete" id="{$product.id_product|intval}_{$product.id_product_attribute|intval}_{$id_customization}_{$product.id_address_delivery|intval}" href="{$link->getPageLink('cart', true, NULL, "delete&amp;id_product={$product.id_product|intval}&amp;ipa={$product.id_product_attribute|intval}&amp;id_customization={$id_customization}&amp;id_address_delivery={$product.id_address_delivery}&amp;token={$token_cart}")|escape:'htmlall':'UTF-8'}">{l s='Delete' mod='custommade'}</a>
                                         </div>
                                     {/if}
                                 </td>
@@ -150,7 +150,7 @@
                 {foreach $discounts as $discount}
                     <tr class="cart_discount {if $discount@last}last_item{elseif $discount@first}first_item{else}item{/if}" id="cart_discount_{$discount.id_discount|intval}">
                         <td class="cart_discount_name" colspan="4" style="text-align:left">{$discount.name|escape:'htmlall':'UTF-8'} 
-                        {if strlen($discount.code)}<a href="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}?deleteDiscount={$discount.id_discount}" class="price_discount_delete pull-right" title="{l s='Delete' mod='custommade'}">{l s='Delete' mod='custommade'}</a>{/if}
+                        {if strlen($discount.code)}<a href="{if $opc}{$link->getPageLink('order-opc', true)}{else}{$link->getPageLink('order', true)}{/if}?deleteDiscount={$discount.id_discount|intval}" class="price_discount_delete pull-right" title="{l s='Delete' mod='custommade'}">{l s='Delete' mod='custommade'}</a>{/if}
                         </td>
                         {*<td class="cart_discount_price">
                             <span class="price-discount price">{if !$priceDisplay}{displayPrice price=$discount.value_real*-1}{else}{displayPrice price=$discount.value_tax_exc*-1}{/if}</span>
