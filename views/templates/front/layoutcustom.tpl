@@ -861,28 +861,31 @@
     });
 
     jQuery(document).on('click', '#addcartbtn', function () {
-        var finalData = cropper.getData(true);
-        finalData.stripe = sessionStorage.hasGrid;
-        finalData.customPrice = newCustomPrice;
-        finalData.gridSize = customGridSize;
-        finalData.userWidth = jQuery('#dataWidth').val();
-        finalData.userHeight = jQuery('#dataHeight').val();
-        console.log(finalData);
-        var finalDataString = JSON.stringify(finalData);
-        jQuery.post(rootUrl + 'module/custommade/cropper?action=setdata&pid=' + id_product, {
-            data: finalDataString
-        }, function () {
-            //jQuery('#buy_block').submit();
-            ajaxCart.add(id_product, '', true, null, 1, null);
-            setTimeout(function () {
+        ajaxCart.remove(id_product);
+        setTimeout(function(){
+            var finalData = cropper.getData(true);
+            finalData.stripe = sessionStorage.hasGrid;
+            finalData.customPrice = newCustomPrice;
+            finalData.gridSize = customGridSize;
+            finalData.userWidth = jQuery('#dataWidth').val();
+            finalData.userHeight = jQuery('#dataHeight').val();
+            //console.log(finalData);
+            var finalDataString = JSON.stringify(finalData);
+            jQuery.post(rootUrl + 'module/custommade/cropper?action=setdata&pid=' + id_product, {
+                data: finalDataString
+            }, function () {
+                //jQuery('#buy_block').submit();
+                ajaxCart.add(id_product, '', true, null, 1, null);
+                setTimeout(function () {
 
-                if (jQuery('.popin-product .product-img').length > 0) {
-                    jQuery('.popin-product .product-img').attr('src', "{$image_direct_url|escape:'htmlall':'UTF-8'}");
-                    jQuery('.popin-title').html('1 x <strong>{$product->name|escape:"htmlall":"UTF-8"}</strong>');
-                    jQuery('.popin-reference').html('Référence : {$product->reference|escape:"htmlall":"UTF-8"}');
-                }
-            }, 1000);
-        });
+                    if (jQuery('.popin-product .product-img').length > 0) {
+                        jQuery('.popin-product .product-img').attr('src', "{$image_direct_url|escape:'htmlall':'UTF-8'}");
+                        jQuery('.popin-title').html('1 x <strong>{$product->name|escape:"htmlall":"UTF-8"}</strong>');
+                        jQuery('.popin-reference').html('Référence : {$product->reference|escape:"htmlall":"UTF-8"}');
+                    }
+                }, 1000);
+            });
+        },1000);
 
     });
 
@@ -1016,7 +1019,10 @@
             formattedNumber += thousandsSep + numbersString.slice(-3)
             numbersString = numbersString.slice(0, -3);
         }
-
+        
+        if(number < 1 && number > 0){
+            return '0' + numbersString + formattedNumber + (decimalsString ? (decPoint + decimalsString) : '');    
+        }
         return (number < 0 ? '-' : '') + numbersString + formattedNumber + (decimalsString ? (decPoint + decimalsString) : '');
     }
 
