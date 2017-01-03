@@ -332,11 +332,12 @@
                                 <a itemprop="brand" href="{$link->getManufacturerLink($product_manufacturer, $product_manufacturer->link_rewrite, $cookie->id_lang)|escape:'htmlall':'UTF-8'}"><img src="{$img_manu_dir|escape:'htmlall':'UTF-8'}{$product->id_manufacturer|intval}-manufacturer_big.jpg" class="img-responsive" alt="{$product_manufacturer->name|escape:'htmlall':'UTF-8'}" /></a>          
                             </div>
                         {else} 
+                            {$link->getCatImageLink($category->link_rewrite, $category->id_category, 'category_default')}
                             <div class="span4 collection borderGrey boxHr"> 
-                                <h2>{l s='Collection' mod='custommade'}<br/>{$category->name|escape:'htmlall':'UTF-8'}</h2>
-                                <p class="parent_cat">{$parent_cat->name|escape:'htmlall':'UTF-8'}</p>
-                                <a href="{$link->getCategoryLink($parent_cat->id)|escape:'htmlall':'UTF-8'}" style="width:100%;overflow:hidden;display:block;height:179px;">
-                                    <img src="{$link->getCatImageLink($parent_cat->link_rewrite, $parent_cat->id_image, 'category_default')|escape:'htmlall':'UTF-8'}" alt="{$parent_cat->name|escape:'htmlall':'UTF-8'}"/>
+                                <h2>{l s='Collection'}<br/>{$category->name}</h2>
+                                <p class="parent_cat">{$parent_cat->name}</p>
+                                <a href="{$link->getCategoryLink($category->id)}" style="width:100%;overflow:hidden;display:block;height:179px;">
+                                    <img src="{$link->getCatImageLink($category->link_rewrite, $category->id_category, 'category_default')}" alt="{$parent_cat->name}"/>
                                 </a>
                             </div>
                         {/if}
