@@ -345,9 +345,9 @@
                          
                             <div class="texte align_center">
                                 {if $product->description != ''}
-                                    {$product->description|escape:'htmlall':'UTF-8'}
+                                    {$product->description|escape:'htmlall':'UTF-8'|htmlspecialchars_decode:3}
                                 {else}
-                                    {$product->description_short|escape:'htmlall':'UTF-8'}
+                                    {$product->description_short|escape:'htmlall':'UTF-8'|htmlspecialchars_decode:3}
                                 {/if}
                             </div>
                         </div>
