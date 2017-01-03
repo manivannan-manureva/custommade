@@ -10,7 +10,7 @@
     <table>
         <tbody>
             <tr>
-                <td valign="top"><label for="prod_customize" style="width:300px;">{l s='Do you want to customize this product :' mod='custommade'}</label></td>
+                <td valign="top"><label for="prod_customize" style="width:300px;">{l s='Voulez-vous personnaliser ce produit :' mod='custommade'}</label></td>
                 <td>
                     <p class="preference_description"><input type="radio" name="prod_customize" id="prod_customize" value="1" {if $getCustomize->prod_customize == 1}checked="checked"{/if}/>{l s='Yes' mod='custommade'}.<input type="radio" name="prod_customize" id="prod_customize" value="0" {if $getCustomize->prod_customize != 1}checked="checked"{/if}/>{l s='No' mod='custommade'}.</p>
                 </td>
@@ -19,47 +19,47 @@
                 </td>
             </tr>
             <tr>
-                <td valign="top"><label for="Height" style="width:300px;">{l s='Max Height :' mod='custommade'}</label></td>
+                <td valign="top"><label for="Height" style="width:300px;">{l s='Hauteur maximum :' mod='custommade'}</label></td>
                 <td>
                     <input type="text" name="Height" id="Height" value="{$getCustomize->cust_height|escape:'html':'UTF-8'}" >
                 </td>
                 <td>
-                    <p class="preference_description">{l s=' Centimeter' mod='custommade'}</p>
+                    <p class="preference_description">{l s=' Centimètre' mod='custommade'}</p>
                 </td>
         <p class="preference_description"></p>
         </tr>
         <tr>
-            <td valign="top"><label for="Width" style="width:300px;">{l s='Max Width :' mod='custommade'}</label></td>	
+            <td valign="top"><label for="Width" style="width:300px;">{l s='Largeur maximale :' mod='custommade'}</label></td>	
             <td>
                 <input type="text" name="Width" id="Width" value="{$getCustomize->cust_width|escape:'html':'UTF-8'}" >
             </td>
             <td>
-                <p class="preference_description">{l s=' Centimeter' mod='custommade'}</p>
+                <p class="preference_description">{l s=' Centimètre' mod='custommade'}</p>
             </td>
         <p class="preference_description"></p>
         </tr>
         <tr>
-            <td valign="top"><label for="SquareMeter" style="width:300px;">{l s='Price Per Square Meter :' mod='custommade'}</label></td>
+            <td valign="top"><label for="SquareMeter" style="width:300px;">{l s='Prix par mètre carré :' mod='custommade'}</label></td>
             <td>
                 <input type="text" name="SquareMeter" id="SquareMeter" value="{$getCustomize->sq_meter_price|escape:'html':'UTF-8'}" >
             </td>
             <td>
-                <p class="preference_description">{l s=' Per Square Meter' mod='custommade'}</p>
+                <p class="preference_description">{l s=' Par Mètre Carré' mod='custommade'}</p>
             </td>
         <p class="preference_description"></p>
         </tr>
         <tr>
-            <td valign="top"><label for="Delivery" style="width:300px;">{l s='Delivery Days :' mod='custommade'}</label></td>
+            <td valign="top"><label for="Delivery" style="width:300px;">{l s='Délais de livraison :' mod='custommade'}</label></td>
             <td>
                 <input type="text" name="Delivery" id="Delivery" value="{$getCustomize->cust_delivery|escape:'html':'UTF-8'}" >
             </td>
             <td>
-                <p class="preference_description">{l s=' Days' mod='custommade'}</p>
+                <p class="preference_description">{l s=' Journées' mod='custommade'}</p>
             </td>
         <p class="preference_description"></p>
         </tr>
         <tr>
-            <td valign="top"><label for="grid_size" style="width:300px;">{l s='Grid Size :' mod='custommade'}</label></td>
+            <td valign="top"><label for="grid_size" style="width:300px;">{l s='Taille de la grille :' mod='custommade'}</label></td>
             <td>
                 <input type="text" name="grid_size" id="grid_size" value="{$getCustomize->grid_size|escape:'html':'UTF-8'}" >
             </td>
@@ -69,10 +69,10 @@
         <p class="preference_description"></p>
         </tr>
         <tr>
-            <td valign="top"><label for="productlist_custom" style="width:300px;">{l s='Sample Product :' mod='custommade'}</label></td>
+            <td valign="top"><label for="productlist_custom" style="width:300px;">{l s='Exemple de produit :' mod='custommade'}</label></td>
             <td>
                 <select name="sample_product" id="sample_product">
-                    <option value="0">{l s='Please Select' mod='custommade'}</option>
+                    <option value="0">{l s='Veuillez sélectionner' mod='custommade'}</option>
                     {foreach from=$productList item=pdt}
                         <option value="{$pdt['id_product']|escape:'htmlall':'UTF-8'}" {if $pdt['id_product'] == $getCustomize->sample_product}selected{/if}>{$pdt['name']|escape:'htmlall':'UTF-8'}</option>
                     {/foreach}
