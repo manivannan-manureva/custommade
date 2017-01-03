@@ -24,7 +24,7 @@
                     <input type="text" name="Height" id="Height" value="{$getCustomize->cust_height|escape:'html':'UTF-8'}" >
                 </td>
                 <td>
-                    <p class="preference_description">{l s=' Centimètre' mod='custommade'}</p>
+                    <p class="preference_description">{l s=' Centimetre' mod='custommade'}</p>
                 </td>
         <p class="preference_description"></p>
         </tr>
@@ -34,27 +34,27 @@
                 <input type="text" name="Width" id="Width" value="{$getCustomize->cust_width|escape:'html':'UTF-8'}" >
             </td>
             <td>
-                <p class="preference_description">{l s=' Centimètre' mod='custommade'}</p>
+                <p class="preference_description">{l s=' Centimetre' mod='custommade'}</p>
             </td>
         <p class="preference_description"></p>
         </tr>
         <tr>
-            <td valign="top"><label for="SquareMeter" style="width:300px;">{l s='Prix par mètre carré :' mod='custommade'}</label></td>
+            <td valign="top"><label for="SquareMeter" style="width:300px;">{l s='Prix par metre carre :' mod='custommade'}</label></td>
             <td>
                 <input type="text" name="SquareMeter" id="SquareMeter" value="{$getCustomize->sq_meter_price|escape:'html':'UTF-8'}" >
             </td>
             <td>
-                <p class="preference_description">{l s=' Par Mètre Carré' mod='custommade'}</p>
+                <p class="preference_description">{l s=' Par Metre Carre' mod='custommade'}</p>
             </td>
         <p class="preference_description"></p>
         </tr>
         <tr>
-            <td valign="top"><label for="Delivery" style="width:300px;">{l s='Délais de livraison :' mod='custommade'}</label></td>
+            <td valign="top"><label for="Delivery" style="width:300px;">{l s='Delais de livraison :' mod='custommade'}</label></td>
             <td>
                 <input type="text" name="Delivery" id="Delivery" value="{$getCustomize->cust_delivery|escape:'html':'UTF-8'}" >
             </td>
             <td>
-                <p class="preference_description">{l s=' Journées' mod='custommade'}</p>
+                <p class="preference_description">{l s=' Journees' mod='custommade'}</p>
             </td>
         <p class="preference_description"></p>
         </tr>
