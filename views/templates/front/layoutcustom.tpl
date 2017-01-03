@@ -821,6 +821,9 @@
     jQuery(document).on('keyup', '#dataWidth', function () {
         var curVal = jQuery.trim(jQuery(this).val());
         curVal = curVal * 1;
+        if(curVal == 0){
+            jQuery(this).val('1');
+        }
         if (curVal > allowedMaxWidth) {
             curVal = allowedMaxWidth;
             jQuery(this).val(allowedMaxWidth);
@@ -842,6 +845,9 @@
     jQuery(document).on('keyup', '#dataHeight', function () {
         var curVal = jQuery.trim(jQuery(this).val());
         curVal = curVal * 1;
+        if(curVal == 0){
+            jQuery(this).val('1');
+        }
         if (curVal > allowedMaxHeight) {
             curVal = allowedMaxHeight;
             jQuery(this).val(allowedMaxHeight);
