@@ -42,7 +42,7 @@
 
 {if ($product->show_price AND !isset($restricted_country_mode)) OR isset($groups) OR $product->reference OR (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
     <!-- add to cart form-->
-    <form id="buy_block" class="span4" {if $PS_CATALOG_MODE AND !isset($groups) AND $product->quantity > 0}class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'htmlall':'UTF-8'}" method="post">
+    <form id="buy_block" class="span4" {if $PS_CATALOG_MODE AND !isset($groups) AND $product->quantity > 0}class="hidden"{/if} action="{$link->getPageLink('cart')|escape:'htmlall':'UTF-8'|htmlspecialchars_decode:3}" method="post">
 
         <!-- hidden datas -->
         <p class="hidden">
