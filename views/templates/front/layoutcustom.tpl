@@ -1035,5 +1035,10 @@
             scrollTop: $("#custom-product-detail").offset().top
         }, 2000);
     });
+    
+    jQuery(window).load(function(){
+        dynamicImage = image.cropper.getCroppedCanvas().toDataURL('image/jpeg', 1);
+        $('.preview').attr('src', dynamicImage);
+    });
 
 </script>
