@@ -453,7 +453,7 @@ button.image-grid {
     color: #9e191d;
     font-weight: 600;
     font-size: 17px;
-    left: -10px;
+    left: -4px;
 }
 .length-cm {
     position: absolute;
@@ -470,6 +470,10 @@ button.image-grid {
     margin-top: -28px;
     margin-bottom: 10px;
     position: relative;
+}
+#dimension_indicator_right{
+	position: absolute;
+	left: 6px;
 }
 .img-resize-right {
     float: left;
