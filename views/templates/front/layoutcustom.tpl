@@ -821,49 +821,73 @@
     jQuery(document).on('keyup', '#dataWidth', function () {
         var curVal = jQuery.trim(jQuery(this).val());
         curVal = curVal * 1;
-        if(curVal == 0){
-            jQuery(this).val('1');
+        
+        if(parseFloat(jQuery('#dataWidth').val()) == 0){
+            jQuery('#dataWidth').val('1');
+        }
+        if(parseFloat(jQuery('#dataHeight').val()) == 0){
+            jQuery('#dataHeight').val('1');
         }
         if (curVal > allowedMaxWidth) {
             curVal = allowedMaxWidth;
             jQuery(this).val(allowedMaxWidth);
         }
-        /*var newOpt = {
-         width: curVal
-         };
-         cropper.setData(newOpt);*/
-        var tempAspectRatio = jQuery('#dataWidth').val() / jQuery('#dataHeight').val();
-        cropper.setAspectRatio(tempAspectRatio);
-        sessionStorage.aspectRatio = tempAspectRatio;
-        dynamicImage = image.cropper.getCroppedCanvas().toDataURL('image/jpeg', 1);
-        $('.preview').attr('src', dynamicImage);
-        setCropToSession();
-        setIndicatorPosition();
-        setNewCustomPrice();
+        
+        if(parseFloat(jQuery('#dataWidth').val()) > 0 && parseFloat(jQuery('#dataHeight').val()) > 0)
+        {
+            /*var newOpt = {
+             width: curVal
+             };
+             cropper.setData(newOpt);*/
+            var tempAspectRatio = jQuery('#dataWidth').val() / jQuery('#dataHeight').val();
+            cropper.setAspectRatio(tempAspectRatio);
+            sessionStorage.aspectRatio = tempAspectRatio;
+            dynamicImage = image.cropper.getCroppedCanvas().toDataURL('image/jpeg', 1);
+            $('.preview').attr('src', dynamicImage);
+            setCropToSession();
+            setIndicatorPosition();
+            setNewCustomPrice();
+            jQuery('#add_to_cart').show();
+        }
+        else
+        {
+            jQuery('#add_to_cart').hide();
+        }
     });
 
     jQuery(document).on('keyup', '#dataHeight', function () {
         var curVal = jQuery.trim(jQuery(this).val());
         curVal = curVal * 1;
-        if(curVal == 0){
-            jQuery(this).val('1');
+        if(parseFloat(jQuery('#dataWidth').val()) == 0){
+            jQuery('#dataWidth').val('1');
+        }
+        if(parseFloat(jQuery('#dataHeight').val()) == 0){
+            jQuery('#dataHeight').val('1');
         }
         if (curVal > allowedMaxHeight) {
             curVal = allowedMaxHeight;
             jQuery(this).val(allowedMaxHeight);
         }
-        /*var newOpt = {
-         height: curVal
-         };
-         cropper.setData(newOpt);*/
-        var tempAspectRatio = jQuery('#dataWidth').val() / jQuery('#dataHeight').val();
-        cropper.setAspectRatio(tempAspectRatio);
-        sessionStorage.aspectRatio = tempAspectRatio;
-        dynamicImage = image.cropper.getCroppedCanvas().toDataURL('image/jpeg', 1);
-        $('.preview').attr('src', dynamicImage);
-        setCropToSession();
-        setIndicatorPosition();
-        setNewCustomPrice();
+        if(parseFloat(jQuery('#dataWidth').val()) > 0 && parseFloat(jQuery('#dataHeight').val()) > 0)
+        {
+            /*var newOpt = {
+             height: curVal
+             };
+             cropper.setData(newOpt);*/
+            var tempAspectRatio = jQuery('#dataWidth').val() / jQuery('#dataHeight').val();
+            cropper.setAspectRatio(tempAspectRatio);
+            sessionStorage.aspectRatio = tempAspectRatio;
+            dynamicImage = image.cropper.getCroppedCanvas().toDataURL('image/jpeg', 1);
+            $('.preview').attr('src', dynamicImage);
+            setCropToSession();
+            setIndicatorPosition();
+            setNewCustomPrice();
+            jQuery('#add_to_cart').show();
+        }
+        else
+        {
+            jQuery('#add_to_cart').hide();
+        }
     });
 
     jQuery(document).on('click', '#addcartbtn', function () {
