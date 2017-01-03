@@ -336,7 +336,7 @@
                                 <h2>{l s='Collection' mod='custommade'}<br/>{$category->name|escape:'htmlall':'UTF-8'}</h2>
                                 <p class="parent_cat">{$parent_cat->name|escape:'htmlall':'UTF-8'}</p>
                                 <a href="{$link->getCategoryLink($category->id)|escape:'htmlall':'UTF-8'}" style="width:100%;overflow:hidden;display:block;height:179px;">
-                                    <img src="{$link->getCatImageLink($category->link_rewrite, $category->id_category, 'category_default')|escape:'htmlall':'UTF-8'}" alt="{$parent_cat->name}"/>
+                                    <img src="{$link->getCatImageLink($category->link_rewrite, $category->id_category, 'category_default')|escape:'htmlall':'UTF-8'}" alt="{$parent_cat->name|escape:'htmlall':'UTF-8'}"/>
                                 </a>
                             </div>
                         {/if}
