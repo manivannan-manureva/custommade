@@ -443,8 +443,8 @@ button.image-grid {
 
 .length-cm-right {
     position: absolute;
-    top: 50%;
-    bottom: 50%;
+  /*  top: 50%;
+    bottom: 50%;*/
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
@@ -453,13 +453,16 @@ button.image-grid {
     color: #9e191d;
     font-weight: 600;
     font-size: 17px;
-    left: -4px;
+    /*left: -4px;*/
+	width: 20px;
+	height: 23px;
+	bottom: 50%
 }
 .length-cm {
     position: absolute;
     left: 0px;
     right: 0px;
-    top:0px;
+    top:-4px;
     color: #9e191d;
     font-weight: 600;
     font-size: 17px;
@@ -467,13 +470,22 @@ button.image-grid {
 .img-resize {
     text-align: center;
     width: 95%;
-    margin-top: -28px;
-    margin-bottom: 10px;
+    margin-top: 0px;
     position: relative;
 }
 #dimension_indicator_right{
+	background: url(../img/arrow.png) no-repeat center;
 	position: absolute;
-	left: 6px;
+	left: 0px;
+	width: 100%;
+	background-size: contain;
+}
+#dimension_indicator{
+	background: url(../img/top-arrow.png) no-repeat center;
+	position: absolute;
+	top: -30px;	
+	height: 20px;
+	background-size: contain;
 }
 .img-resize-right {
     float: left;
@@ -481,7 +493,7 @@ button.image-grid {
     position: relative;
 }
 .custom-product-detail .title-module-preview {
-    text-transform:uppercase;
+    text-transform: uppercase;
 }
 .buttons_bottom_block1 a {
     background: #891812;

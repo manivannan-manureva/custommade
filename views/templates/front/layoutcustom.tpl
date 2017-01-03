@@ -203,15 +203,19 @@
 
                         <div class="col-md-9" id="right-col"> 
                             <div class="img-resize imr_top">
-                                <img id="dimension_indicator" src="{$rootUrl|escape:'htmlall':'UTF-8'}modules/custommade/views/img/top.png">
-                                <span class="length-cm cmvalue">200cm</span>
+								<div id="dimension_indicator" >
+                             <!--    <img  src="{$rootUrl|escape:'htmlall':'UTF-8'}modules/custommade/views/img/top-arrow.png"> -->
+									<span class="length-cm cmvalue">200cm</span>
+								</div>
                             </div>
                             <div class="img-container">
                                 <img src="{$image_direct_url|escape:'htmlall':'UTF-8'}" alt="Picture"/>
                             </div>
                             <div class="img-resize-right imr_right">
-                                <img id="dimension_indicator_right" src="{$rootUrl|escape:'htmlall':'UTF-8'}modules/custommade/views/img/right.png">
-                                <span class="length-cm-right cmvalue">200cm</span>
+								<div id="dimension_indicator_right">
+                               <!--  <img  src="{$rootUrl|escape:'htmlall':'UTF-8'}modules/custommade/views/img/right.png"> -->
+									<span class="length-cm-right cmvalue">200cm</span>
+								</div>
                             </div>
                         </div><div class="clearfix"></div>
 
