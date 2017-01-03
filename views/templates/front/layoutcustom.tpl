@@ -867,6 +867,7 @@
     });
 
     jQuery(document).on('click', '#addcartbtn', function () {
+        jQuery('#bigpic').src('{$image_direct_url|escape:'htmlall':'UTF-8'}');
         ajaxCart.remove(id_product);
         setTimeout(function(){
             var finalData = cropper.getData(true);
@@ -969,6 +970,7 @@
 
     function addSampleToCart() {
         if (sampleProductId > 0) {
+            jQuery('#bigpic').src('{$sample_image_url_direct|escape:'htmlall':'UTF-8'}');
             ajaxCart.add(sampleProductId, '', true, null, 1, null);
             setTimeout(function () {
 
