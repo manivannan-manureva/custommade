@@ -86,7 +86,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-arrows-h" aria-hidden="true"></i>
                                             </div>
-                                            <input value="{$getPriceDetails->cust_width|escape:'htmlall':'UTF-8'}" onkeypress="return isNumber(event)" class="form-control" id="dataWidth" type="text" placeholder="{$getPriceDetails->cust_width|escape:'htmlall':'UTF-8'} cm max">
+                                            <input value="" onkeypress="return isNumber(event)" class="form-control" id="dataWidth" type="text" placeholder="{$getPriceDetails->cust_width|escape:'htmlall':'UTF-8'} cm max">
                                         </div>
                                     </div>
                                     <div class="form-group heightbox">
@@ -95,7 +95,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-arrows-v" aria-hidden="true"></i>
                                             </div>
-                                            <input value="{$getPriceDetails->cust_height|escape:'htmlall':'UTF-8'}" onkeypress="return isNumber(event)" class="form-control" id="dataHeight" type="text"  placeholder="{$getPriceDetails->cust_height|escape:'htmlall':'UTF-8'} cm max">
+                                            <input value="" onkeypress="return isNumber(event)" class="form-control" id="dataHeight" type="text"  placeholder="{$getPriceDetails->cust_height|escape:'htmlall':'UTF-8'} cm max">
                                         </div>
                                     </div>
                                     <div><a id="button-scroll" title="Autres dimensions?">Autres dimensions?</a></div>
@@ -442,6 +442,15 @@
         var samplePrice = {sprintf("%.02f", $sampleProductInfo->price|intval)};
     } else {
         var samplePrice = '';
+    }
+    
+    if (jQuery.trim(sessionStorage.cropData) == '') {
+        if(allowedMaxWidth < 300){
+            jQuery('#dataWidth').val(allowedMaxWidth);
+        }
+        if(allowedMaxHeight < 300){
+            jQuery('#dataHeight').val(allowedMaxHeight);
+        }
     }
 
     var Cropper = window.Cropper;
