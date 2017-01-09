@@ -346,7 +346,7 @@
                             </div>
                         {/if}
                         <div class="span4 description borderGrey boxHr">
-                            <h2>{l s='Description' mod='custommade'}<br/>{if $product_type}{if $product_type == 24875 || $product_type == 36 || $product_type == 37 || $product_type == 25024 || $product_type == 25023}{l s='Papier peint' mod='custommade'}{elseif $product_type == 420}{l s='Panneau' mod='custommade'}{elseif $product_type == 414}{l s='Frise' mod='custommade'}{elseif $product_type == 35}{l s='Mètre linéaire' mod='custommade'}{else}{l s='Tissu' mod='custommade'}{/if}{/if} {$product->name|escape:'htmlall':'UTF-8'}</h2> 
+                            <h2>{l s='Description Du' mod='custommade'}<br/>{if $product_type}{if $product_type == 24875 || $product_type == 36 || $product_type == 37 || $product_type == 25024 || $product_type == 25023}{l s='Papier peint' mod='custommade'}{elseif $product_type == 420}{l s='Panneau' mod='custommade'}{elseif $product_type == 414}{l s='Frise' mod='custommade'}{elseif $product_type == 35}{l s='Mètre linéaire' mod='custommade'}{else}{l s='Tissu' mod='custommade'}{/if}{/if} {$product->name|escape:'htmlall':'UTF-8'}</h2> 
                          
                             <div class="texte align_center">
                                 {if $product->description != ''}
