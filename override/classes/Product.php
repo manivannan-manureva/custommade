@@ -25,6 +25,10 @@ class Product extends ProductCore
     {
         static $address = null;
         static $context = null;
+        
+        $cookie = new Cookie('crop_data');
+        $cropSessionData = unserialize($cookie->product_crop_data);
+                
         if ($address === null) {
             $address = new Address();
         }
@@ -57,7 +61,6 @@ class Product extends ProductCore
             $real_quantity
         );
         if (isset(self::$_prices[$cache_id])) {
-
             if (isset($specific_price['price']) && $specific_price['price'] > 0) {
                 $specific_price['price'] = self::$_prices[$cache_id];
             }
@@ -81,18 +84,13 @@ class Product extends ProductCore
                 foreach ($res as $row) {
                     $customPrice = $row['price'];
                     if ($row['id_product_attribute'] == 0) {
-                        $cookie = new Cookie('crop_data');
-                        $cropSessionData = unserialize($cookie->product_crop_data);
-
                         if (isset($cropSessionData[$id_product]) && trim($cropSessionData[$id_product]) != '') {
                             $customJsonData = Tools::jsonDecode($cropSessionData[$id_product]);
                             $customPrice = $customJsonData->customPrice;
                         }
-
                     } else {
                         $customPrice = $row['price'];
                     }
-
                     $array_tmp = array(
                         'price' => $customPrice,
                         'ecotax' => $row['ecotax'],
@@ -131,6 +129,10 @@ class Product extends ProductCore
         $address->postcode = $zipcode;
         $tax_manager = TaxManagerFactory::getManager($address, Product::getIdTaxRulesGroupByIdProduct((int) $id_product, $context));
         $product_tax_calculator = $tax_manager->getTaxCalculator();
+        if (isset($cropSessionData[$id_product]) && trim($cropSessionData[$id_product]) != '')
+        {
+            $use_tax = false;
+        }
         if ($use_tax) {
             $price = $product_tax_calculator->addTaxes($price);
         }

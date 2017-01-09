@@ -98,7 +98,7 @@ class CustomMadeGenerateimageModuleFrontController extends ModuleFrontController
             $bgHeight = $imageSize[1];
 
             $im = imagecreatefromjpeg($tmpFileName);
-
+            
             /* Stop : Rotate Image */
             $im = imagerotate($im, ($config['rotate_degree'] * -1), 0);
             /* Start : Crop Image */

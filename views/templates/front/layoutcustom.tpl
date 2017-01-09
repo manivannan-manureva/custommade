@@ -85,7 +85,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-arrows-h" aria-hidden="true"></i>
                                             </div>
-                                            <input value="300" class="form-control" id="dataWidth" type="text" placeholder="{$getPriceDetails->cust_width|escape:'htmlall':'UTF-8'} cm max">
+                                            <input value="{$getPriceDetails->cust_width|escape:'htmlall':'UTF-8'}" onkeypress="return isNumber(event)" class="form-control" id="dataWidth" type="text" placeholder="{$getPriceDetails->cust_width|escape:'htmlall':'UTF-8'} cm max">
                                         </div>
                                     </div>
                                     <div class="form-group heightbox">
@@ -94,7 +94,7 @@
                                             <div class="input-group-addon">
                                                 <i class="fa fa-arrows-v" aria-hidden="true"></i>
                                             </div>
-                                            <input value="300" class="form-control" id="dataHeight" type="text"  placeholder="{$getPriceDetails->cust_height|escape:'htmlall':'UTF-8'} cm max">
+                                            <input value="{$getPriceDetails->cust_height|escape:'htmlall':'UTF-8'}" onkeypress="return isNumber(event)" class="form-control" id="dataHeight" type="text"  placeholder="{$getPriceDetails->cust_height|escape:'htmlall':'UTF-8'} cm max">
                                         </div>
                                     </div>
                                     <div><a id="button-scroll" title="Autres dimensions?">Autres dimensions?</a></div>
@@ -962,7 +962,6 @@
         newCustomPrice = dimension * (pricePerMeterSq);
         
         
-        
         /*newCustomPrice = (((widthValue) * (heightValue)) / 10000) * pricePerMeterSq;
 
         newCustomPrice = newCustomPrice.toFixed(2);*/
@@ -1060,6 +1059,15 @@
             return '0' + numbersString + formattedNumber + (decimalsString ? (decPoint + decimalsString) : '');    
         }
         return (number < 0 ? '-' : '') + numbersString + formattedNumber + (decimalsString ? (decPoint + decimalsString) : '');
+    }
+    
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
     }
 
 
