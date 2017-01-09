@@ -447,9 +447,13 @@
     if (jQuery.trim(sessionStorage.cropData) == '') {
         if(allowedMaxWidth < 300){
             jQuery('#dataWidth').val(allowedMaxWidth);
+        }else{
+            jQuery('#dataWidth').val('300');
         }
         if(allowedMaxHeight < 300){
             jQuery('#dataHeight').val(allowedMaxHeight);
+        }else{
+            jQuery('#dataHeight').val('300');
         }
     }
 
