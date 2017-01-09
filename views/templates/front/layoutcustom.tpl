@@ -405,9 +405,9 @@
         </ul>
     </div>
     <div class="clear"></div>
-    <div id="HOOK_PRODUCT_TAB_CONTENT">
-        <a href="#" class="idTabHrefShort"><span>{l s='Lire les 7 avis Papier peint Trapez Vert'}</span></a>
+    <div id="HOOK_PRODUCT_TAB_CONTENT">        
         {$HOOK_PRODUCT_TAB_CONTENT|escape:'htmlall':'UTF-8'|htmlspecialchars_decode:3}
+		<a href="#" class="idTabHrefShort"><span>{l s='Lire les 7 avis Papier peint Trapez Vert'}</span></a>
     </div>
 {/if}
     
@@ -967,7 +967,9 @@
 
     function setNewCustomPrice() {
         
-        
+        if(jQuery('#dataWidth').val() == '' || jQuery('#dataHeight').val() == ''){
+            return false;
+        }
         //newCustomPrice = (((cropper.getData(true).width) * (cropper.getData(true).height)) / 10000) * pricePerMeterSq;
         var widthValue = parseFloat(jQuery('#dataWidth').val()) / 100;
         var heightValue = parseFloat(jQuery('#dataHeight').val()) / 100;
@@ -994,6 +996,9 @@
     }
 
     function setIndicatorPosition() {
+        if(jQuery('#dataWidth').val() == '' || jQuery('#dataHeight').val() == ''){
+            return false;
+        }
         var widthValue = parseFloat(jQuery('#dataWidth').val());
         var heightValue = parseFloat(jQuery('#dataHeight').val());
         
