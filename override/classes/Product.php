@@ -129,8 +129,7 @@ class Product extends ProductCore
         $address->postcode = $zipcode;
         $tax_manager = TaxManagerFactory::getManager($address, Product::getIdTaxRulesGroupByIdProduct((int) $id_product, $context));
         $product_tax_calculator = $tax_manager->getTaxCalculator();
-        if (isset($cropSessionData[$id_product]) && trim($cropSessionData[$id_product]) != '')
-        {
+        if (isset($cropSessionData[$id_product]) && trim($cropSessionData[$id_product]) != '') {
             $use_tax = false;
         }
         if ($use_tax) {
