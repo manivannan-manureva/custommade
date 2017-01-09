@@ -529,6 +529,7 @@ button.image-grid {
 	margin: 0 0 60px 20px;
     float: left;
 }
+#module-custommade-default .section-content-start .features .texte strong{font-weight: normal }
 
 @media(min-width:320px) {
     .cart-section .form-horizontal.docs-data {
