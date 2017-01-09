@@ -388,25 +388,15 @@
                     {assign var=entrega value=$feature.value}
                 {/if}
             {/foreach}
+            <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France m�tropolitaine' mod='custommade'}">{l s='D�s 150 � d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
+
             {if $lang_id == 4}
                 <li><span>{l s='Question / Conseil / Commande' mod='custommade'}</span><br/><span><a href="mail:contact@aufildescouleurs.com">{l s='contact@aufildescouleurs.com' mod='custommade'}</a></span></li>
             {else}
                 <li><span>{l s='Question / Conseil / Commande' mod='custommade'}</span><br/><span>{l s='01 73 79 78 87' mod='custommade'}</span></li>
             {/if}
-            {if $lang_id == 4}
-            <li><span>{l s='Livraison' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{if $entrega == ''}{l s='N/A' mod='custommade'}{else}{$entrega|escape:'htmlall':'UTF-8'}{/if}</span></li>
-            <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France métropolitaine' mod='custommade'}">{l s='Dès 150 € d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
-            {$HOOK_PRODUCT_TAB|escape:'htmlall':'UTF-8'}
-            {else}
-            <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France métropolitaine' mod='custommade'}">{l s='Dès 150 € d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
-            <li><span>{l s='Livraison standard' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{$delai_livraison2|escape:'htmlall':'UTF-8'} - {if $standard_delivery_price != '' && $standard_delivery_price > 0}{convertPrice price=$standard_delivery_price*1.2}{else}{l s='Gratuit' mod='custommade'}{/if}</span></li>
-            {if $delai_livraison == ''}
-                <li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='custommade'}</span><br/><span><strong class="avis">{$comments|@count|escape:'htmlall':'UTF-8'}</strong> {l s='avis sur ce produit' mod='custommade'}</span></a></li>
-            {else}
-                <li><span>{l s='Livraison rapide' mod='custommade'}</span><br/><span>{*{l s='10 jours'}*}{if $delai_livraison == ''}{l s='Non disponible' mod='custommade'}{else}{$delai_livraison|escape:'htmlall':'UTF-8'} - {if $express_delivery_price != ''}{convertPrice price=$express_delivery_price*1.2}{else}{l s='Gratuit' mod='custommade'}{/if}{/if}</span></li>
-            {/if}
 
-            {/if}{debug}
+            <li><span>{l s='FAQ' mod='custommade'}</span><br/><span title="{l s='FAQ' mod='custommade'}">{l s='Les questions les plus frequentes' mod='custommade'}</span></li>
             
     {*      {$HOOK_PRODUCT_TAB}
      *} {*<li><a href="#idTab5" class="idTabHrefShort"><span>{l s='Voir les avis' mod='custommade'}</span><br/><span><strong class="avis">xxx</strong> {l s='avis sur ce produit' mod='custommade'}</span></a></li>
@@ -416,6 +406,7 @@
     </div>
     <div class="clear"></div>
     <div id="HOOK_PRODUCT_TAB_CONTENT">
+        <a href="#" class="idTabHrefShort"><span>{l s='Lire les 7 avis Papier peint Trapez Vert'}</span></a>
         {$HOOK_PRODUCT_TAB_CONTENT|escape:'htmlall':'UTF-8'|htmlspecialchars_decode:3}
     </div>
 {/if}
