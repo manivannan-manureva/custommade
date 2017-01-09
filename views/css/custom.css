@@ -513,6 +513,23 @@ button.image-grid {
     height: 100%;
 }
 #button-scroll {cursor:pointer;}
+#module-custommade-default #HOOK_PRODUCT_TAB_CONTENT{padding-bottom: 30px;}
+#module-custommade-default .boxDotted{margin: 30px 0 40px 20px}
+#module-custommade-default #HOOK_PRODUCT_TAB_CONTENT .bgGris{padding: 0;}
+#module-custommade-default #HOOK_PRODUCT_TAB_CONTENT .bgGris h2{
+	background: #f2f3f4;
+    padding: 20px;
+    font-family: 'Conv_Book Antiqua Regular';
+    margin: 20px 0px 30px 0px;
+	font-size: 24px;
+	text-transform: uppercase;
+	line-height: 25px;
+}
+#product_comments_block_tab{ 
+	margin: 0 0 60px 20px;
+    float: left;
+}
+
 @media(min-width:320px) {
     .cart-section .form-horizontal.docs-data {
         width:174px;
