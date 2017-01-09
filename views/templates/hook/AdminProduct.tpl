@@ -88,5 +88,6 @@
     <div class="panel-footer">
         <a href="index.php?controller=AdminProducts&amp;token={$token|escape:'html':'UTF-8'}" class="btn btn-default"><i class="process-icon-cancel"></i>{l s='Cancel' mod='custommade'}</a>
         <button type="submit" name="submitAddproduct" class="btn btn-default pull-right"><i class="process-icon-save"></i>{l s='Save' mod='custommade'}</button>
+        <button type="submit" name="submitAddproductAndStay" class="btn btn-default pull-right"><i class="process-icon-save"></i> {l s='Enregistrer et rester' mod='custommade'}</button>
     </div>
 </div>
