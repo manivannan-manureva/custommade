@@ -249,7 +249,26 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
             // get image full URL
             $image_url_direct = Tools::getHttpHost(true) . _THEME_PROD_DIR_ . $imageDirect->getExistingImgPath() . ".jpg";
             
-
+            $cookie = new Cookie('crop_data');
+            $cropSessionData = unserialize($cookie->product_crop_data);
+            if (isset($cropSessionData[$this->product->id]) && trim($cropSessionData[$this->product->id]) != '') {
+               $dataInSession = 1;
+               $customJsonData = $cropSessionData[$this->product->id];
+               $customDataObject = Tools::jsonDecode($customJsonData);
+               $customWidth = $customDataObject->userWidth;
+               $customHeight = $customDataObject->userHeight;
+               $aspectRatio = $customWidth / $customHeight;
+               $cropData = $customJsonData;
+            } else {
+               $dataInSession = 0;
+               $customJsonData = '';
+               $customDataObject = '';
+               $customWidth = '';
+               $customHeight = '';
+               $aspectRatio = '';
+               $cropData = '';
+            }
+            
             $this->context->smarty->assign(array(
                 'stock_management' => Configuration::get('PS_STOCK_MANAGEMENT'),
                 'customizationFields' => $customization_fields,
@@ -291,7 +310,14 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
                 'image_direct_url' => $image_url_direct,
                 'sampleProductInfo' => $sampleProductInfo,
                 'sample_image_url_direct' => $sample_image_url_direct,
-                'rootUrl' => Tools::getHttpHost(true) . __PS_BASE_URI__
+                'rootUrl' => Tools::getHttpHost(true) . __PS_BASE_URI__,
+                'dataInSession' => $dataInSession,
+                'customJsonData' => $customJsonData,
+                'customDataObject' => $customDataObject,
+                'customWidth' => $customWidth,
+                'customHeight' => $customHeight,
+                'aspectRatio' => $aspectRatio,
+                'cropData' => $cropData,
             ));
         }
         //echo $this->custModuleFolderName;die;

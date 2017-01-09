@@ -39,6 +39,7 @@
 
 //]]>
 </script>
+{include file="$tpl_dir./breadcrumb.tpl"}
 
 {if ($product->show_price AND !isset($restricted_country_mode)) OR isset($groups) OR $product->reference OR (isset($HOOK_PRODUCT_ACTIONS) && $HOOK_PRODUCT_ACTIONS)}
     <!-- add to cart form-->
@@ -456,6 +457,15 @@
     var dataRotate = document.getElementById('dataRotate');
     var dataScaleX = document.getElementById('dataScaleX');
     var dataScaleY = document.getElementById('dataScaleY');
+    var dataInSession = false;
+    if({$dataInSession|escape:'htmlall':'UTF-8'}){
+        dataInSession = true;
+        sessionStorage.cropData = '{$cropData|escape:'html':'UTF-8'|htmlspecialchars_decode:3}';
+        sessionStorage.customHeight = '{$customHeight|escape:'html':'UTF-8'}';
+        sessionStorage.customWidth = '{$customWidth|escape:'html':'UTF-8'}';
+        sessionStorage.aspectRatio = '{$aspectRatio|escape:'html':'UTF-8'}';
+    }
+        
     var options = {
         /*  viewMode: 1,
          aspectRatio: 1 / 1,
