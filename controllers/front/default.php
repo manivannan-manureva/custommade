@@ -252,21 +252,21 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
             $cookie = new Cookie('crop_data');
             $cropSessionData = unserialize($cookie->product_crop_data);
             if (isset($cropSessionData[$this->product->id]) && trim($cropSessionData[$this->product->id]) != '') {
-               $dataInSession = 1;
-               $customJsonData = $cropSessionData[$this->product->id];
-               $customDataObject = Tools::jsonDecode($customJsonData);
-               $customWidth = $customDataObject->userWidth;
-               $customHeight = $customDataObject->userHeight;
-               $aspectRatio = $customWidth / $customHeight;
-               $cropData = $customJsonData;
+                $dataInSession = 1;
+                $customJsonData = $cropSessionData[$this->product->id];
+                $customDataObject = Tools::jsonDecode($customJsonData);
+                $customWidth = $customDataObject->userWidth;
+                $customHeight = $customDataObject->userHeight;
+                $aspectRatio = $customWidth / $customHeight;
+                $cropData = $customJsonData;
             } else {
-               $dataInSession = 0;
-               $customJsonData = '';
-               $customDataObject = '';
-               $customWidth = '';
-               $customHeight = '';
-               $aspectRatio = '';
-               $cropData = '';
+                $dataInSession = 0;
+                $customJsonData = '';
+                $customDataObject = '';
+                $customWidth = '';
+                $customHeight = '';
+                $aspectRatio = '';
+                $cropData = '';
             }
             
             $this->context->smarty->assign(array(
