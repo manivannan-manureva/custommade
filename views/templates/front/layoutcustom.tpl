@@ -915,6 +915,7 @@
     });
 
     jQuery(document).on('click', '#addcartbtn', function () {
+        jQuery('#addcartbtn').attr('disabled','true');
         jQuery('#bigpic').attr('src','{$image_direct_url|escape:'htmlall':'UTF-8'}');
         ajaxCart.remove(id_product);
         setTimeout(function(){
@@ -938,6 +939,7 @@
                         jQuery('.popin-title').html('1 x <strong>{$product->name|escape:"htmlall":"UTF-8"}</strong>');
                         jQuery('.popin-reference').html('Référence : {$product->reference|escape:"htmlall":"UTF-8"}');
                     }
+                    jQuery('#addcartbtn').removeAttr('disabled');
                 }, 1000);
             });
         },1000);

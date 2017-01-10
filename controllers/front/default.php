@@ -263,6 +263,9 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
                 if ($optionData['crop_options'][0]->stripe) {
                     $enableStripe = 1;
                     $optionGridSize = $optionData['crop_options'][0]->gridSize;
+                } else {
+                    $enableStripe = 0;
+                    $optionGridSize = 0;
                 }
             } else if (isset($cropSessionData[$this->product->id]) && trim($cropSessionData[$this->product->id]) != '') {
                 $dataInSession = 1;
