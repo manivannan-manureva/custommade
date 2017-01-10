@@ -125,6 +125,33 @@ class AuFilDesCoul extends ObjectModel
             $image = $moduleName."/output/".$id.".png";
             $ext = pathinfo($image, PATHINFO_EXTENSION);
             $image_url = ImageManager::thumbnail($image, $productId.".png", 50, $ext, true, true);
+            $options['option_id'][] = $id;
+            $options['order_id'][] = $orderId;
+            $options['product_name'][] = $product->name['1'].'<br>Reference: '.$product->reference;
+            $options['hd_image_url'][] = $image_url;
+            $options['productId'][] = $productId;
+            $options['image_link'][] = Tools::getHttpHost(true).__PS_BASE_URI__."modules/custommade/output/".$id.".png";
+            $options['crop_options'][] = $customOptions;
+        }
+        return $options;
+    }
+    
+    public static function getHDOrderByOptionId($moduleName, $optionId)
+    {
+        $select = 'SELECT * FROM `'._DB_PREFIX_.'options` WHERE `id` = '.$optionId.' ORDER BY id ASC';
+        $results = Db::getInstance()->ExecuteS($select);
+        $options = array();
+        foreach ($results as $row) {
+            $id = $row['id'];
+            $orderId = $row['order_id'];
+            $productId = $row['product_id'];
+            $customOptions = Tools::jsonDecode($row['options']);
+            $product = new Product((int)$productId);
+            $image = $moduleName."/output/".$id.".png";
+            $ext = pathinfo($image, PATHINFO_EXTENSION);
+            $image_url = ImageManager::thumbnail($image, $productId.".png", 50, $ext, true, true);
+            $options['option_id'][] = $id;
+            $options['order_id'][] = $orderId;
             $options['product_name'][] = $product->name['1'].'<br>Reference: '.$product->reference;
             $options['hd_image_url'][] = $image_url;
             $options['productId'][] = $productId;

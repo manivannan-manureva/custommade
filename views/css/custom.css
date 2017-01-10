@@ -496,9 +496,9 @@ button.image-grid {
     text-transform: uppercase;
 }
 .buttons_bottom_block1 a {
-    background: #891812;
-    padding: 0;
-    padding: 10px;
+    background: #9f1916;
+    padding: 0;/*
+    padding: 10px;*/
     text-align: center;
     color: #ffffff;
     text-transform: uppercase;
@@ -506,11 +506,14 @@ button.image-grid {
     font-size: 14px;
     text-decoration: none;
     border-radius: 5px;
-    border:0px;	
+    border: 0px;	
     width: 200px;
-    margin-top:25px;
+    margin-top: 25px;
     margin-bottom: 20px;
     height: 100%;
+	font-weight: bold;
+	height: 37px;
+    line-height: 37px;
 }
 #button-scroll {cursor:pointer;}
 #module-custommade-default #HOOK_PRODUCT_TAB_CONTENT{padding-bottom: 30px;}
@@ -526,7 +529,7 @@ button.image-grid {
 	line-height: 25px;
 }
 #product_comments_block_tab{ 
-	margin: 0 0 60px 20px;
+	margin: 0 0 20px 20px;
     float: left;
 }
 #module-custommade-default .section-content-start .features .texte strong{font-weight: normal }
@@ -537,7 +540,7 @@ button.image-grid {
 	background: #ffffff;
     color: #8f8f8f;
     border: 1Px solid #c8c7c7;
-    margin: 0 36px 0 0;
+    margin: 0 36px 30px 20px;
     line-height: 28px;
     text-transform: none;
     height: 30px;

@@ -388,7 +388,7 @@
                     {assign var=entrega value=$feature.value}
                 {/if}
             {/foreach}
-            <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France métropolitaine' mod='custommade'}">{l s='Dès 150 € d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
+            <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France mï¿½tropolitaine' mod='custommade'}">{l s='Dï¿½s 150 ï¿½ d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
 
             {if $lang_id == 4}
                 <li><span>{l s='Question / Conseil / Commande' mod='custommade'}</span><br/><span><a href="mail:contact@aufildescouleurs.com">{l s='contact@aufildescouleurs.com' mod='custommade'}</a></span></li>

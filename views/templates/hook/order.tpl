@@ -37,6 +37,7 @@
                 <th>
                     <span class="title_box ">{l s='Options' mod='custommade'}</span>
                 </th>
+                <th>&nbsp;</th>
             </tr>
         </thead>
         <tbody>
@@ -54,7 +55,8 @@
                         Width: {$getHDDetails['crop_options'][$key]->userWidth|escape:'htmlall':'UTF-8'}{l s=' CM' mod='custommade'}</br>
                         Height: {$getHDDetails['crop_options'][$key]->userHeight|escape:'htmlall':'UTF-8'}{l s=' CM' mod='custommade'}</br>
                         Rotate: {$getHDDetails['crop_options'][$key]->rotate|escape:'htmlall':'UTF-8'}</br>
-                    </td>                    
+                    </td>
+                    <td><a target="_blank" href="/module/custommade/default?id_product={$getHDDetails['productId'][$key]|escape:'htmlall':'UTF-8'}&optionid={$getHDDetails['option_id'][$key]|escape:'htmlall':'UTF-8'}">{l s='Reproduction de la configuration' mod='custommade'}</a></td>
                 </tr>
             {foreachelse}
                 <tr>

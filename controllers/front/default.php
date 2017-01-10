@@ -251,7 +251,16 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
             
             $cookie = new Cookie('crop_data');
             $cropSessionData = unserialize($cookie->product_crop_data);
-            if (isset($cropSessionData[$this->product->id]) && trim($cropSessionData[$this->product->id]) != '') {
+            if(Tools::getValue('optionid')){
+                $optionData = AuFilDesCoul::getHDOrderByOptionId('custommade',Tools::getValue('optionid'));
+                $dataInSession = 1;
+                $customJsonData = Tools::jsonEncode($optionData['crop_options'][0]);
+                $customDataObject = $optionData['crop_options'][0];
+                $customWidth = $optionData['crop_options'][0]->userWidth;
+                $customHeight = $optionData['crop_options'][0]->userHeight;
+                $aspectRatio = $customWidth / $customHeight;
+                $cropData = $customJsonData;
+            } else if (isset($cropSessionData[$this->product->id]) && trim($cropSessionData[$this->product->id]) != '') {
                 $dataInSession = 1;
                 $customJsonData = $cropSessionData[$this->product->id];
                 $customDataObject = Tools::jsonDecode($customJsonData);
