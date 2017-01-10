@@ -260,6 +260,10 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
                 $customHeight = $optionData['crop_options'][0]->userHeight;
                 $aspectRatio = $customWidth / $customHeight;
                 $cropData = $customJsonData;
+                if($optionData['crop_options'][0]->stripe){
+                    $enableStripe = 1;
+                    $optionGridSize = $optionData['crop_options'][0]->gridSize;
+                }
             } else if (isset($cropSessionData[$this->product->id]) && trim($cropSessionData[$this->product->id]) != '') {
                 $dataInSession = 1;
                 $customJsonData = $cropSessionData[$this->product->id];
@@ -268,6 +272,8 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
                 $customHeight = $customDataObject->userHeight;
                 $aspectRatio = $customWidth / $customHeight;
                 $cropData = $customJsonData;
+                $enableStripe = 0;
+                $optionGridSize = 0;
             } else {
                 $dataInSession = 0;
                 $customJsonData = '';
@@ -276,6 +282,8 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
                 $customHeight = '';
                 $aspectRatio = '';
                 $cropData = '';
+                $enableStripe = 0;
+                $optionGridSize = 0;
             }
             
             $this->context->smarty->assign(array(
@@ -327,6 +335,8 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
                 'customHeight' => $customHeight,
                 'aspectRatio' => $aspectRatio,
                 'cropData' => $cropData,
+                'enableStripe' => $enableStripe,
+                'optionGridSize' => $optionGridSize
             ));
         }
         //echo $this->custModuleFolderName;die;

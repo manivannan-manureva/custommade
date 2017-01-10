@@ -447,6 +447,12 @@
             jQuery('#dataHeight').val('300');
         }
     }
+    
+    if({$enableStripe|escape:'htmlall':'UTF-8'}){
+        if (jQuery.trim(sessionStorage.hasGrid) != '1') {
+            customGridSize = {$optionGridSize|escape:'htmlall':'UTF-8'};
+        }
+    }
 
     var Cropper = window.Cropper;
     var URL = window.URL || window.webkitURL;
@@ -1102,6 +1108,12 @@
     jQuery(window).load(function(){
         dynamicImage = image.cropper.getCroppedCanvas().toDataURL('image/jpeg', 1);
         $('.preview').attr('src', dynamicImage);
+        
+        if({$enableStripe|escape:'htmlall':'UTF-8'}){
+            if (jQuery.trim(sessionStorage.hasGrid) != '1') {
+                jQuery('#actions .image-grid').trigger('click');
+            }
+        }
     });
 
 </script>
