@@ -55,11 +55,11 @@ button.image-grid {
     position: absolute;
     top: 0;
     z-index: 1;
-    overflow:hidden;
+    overflow: hidden;
 }
 .product_social {}
 .social {
-	clear:both;padding-top: 20px;text-align: center
+	clear:both;padding-top: 30px;text-align: center
 }
 .social li {
     display: inline;
