@@ -260,7 +260,7 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
                 $customHeight = $optionData['crop_options'][0]->userHeight;
                 $aspectRatio = $customWidth / $customHeight;
                 $cropData = $customJsonData;
-                if($optionData['crop_options'][0]->stripe){
+                if ($optionData['crop_options'][0]->stripe) {
                     $enableStripe = 1;
                     $optionGridSize = $optionData['crop_options'][0]->gridSize;
                 }
