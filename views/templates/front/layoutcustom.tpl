@@ -288,9 +288,9 @@
                         <div class="tab-content">
                             {foreach from=$getUnivers1 key=k item=universeImage}
                                 <div class="tab-pane {if (1 == $k+1)}active{/if} docs-preview" id="scene{$k+1|escape:'htmlall':'UTF-8'}">
-                                    <div class="backdrop" style="height:76%;">
-                                        <img class="preview" src="" style="left:0;top:0;">
-                                        <span class="gridlayout"></span> 										
+                                    <div class="backdrop" style="height:{$universeImage['universe_height']|escape:'htmlall':'UTF-8'}%;">
+                                        <img class="preview" src="" style="left:{$universeImage['universe_left']|escape:'htmlall':'UTF-8'}%;top:{$universeImage['universe_top']|escape:'htmlall':'UTF-8'}%;">
+                                        <span class="gridlayout"></span>                                        
                                     </div>
                                     <div class="overlay">
                                         <img src="{$img_dir|escape:'htmlall':'UTF-8'}{$universeImage['image']|escape:'htmlall':'UTF-8'}">

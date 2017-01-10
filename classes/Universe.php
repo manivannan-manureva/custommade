@@ -16,6 +16,9 @@
 class Universe extends ObjectModel
 {
     public $universe_name;
+    public $universe_left;
+    public $universe_top;
+    public $universe_height;
     public $image;
     public $thump;
     public $active;
@@ -28,6 +31,9 @@ class Universe extends ObjectModel
         'primary' => 'id_universe',
         'fields' => array(
             'universe_name' =>  array('type' => self::TYPE_STRING, 'validate' => 'isString', 'required' => true),
+            'universe_left' =>  array('type' => self::TYPE_STRING, 'validate' => 'isString', 'required' => true),
+            'universe_top' =>  array('type' => self::TYPE_STRING, 'validate' => 'isString', 'required' => true),
+            'universe_height' =>  array('type' => self::TYPE_STRING, 'validate' => 'isString', 'required' => true),
             'active'        =>  array('type' => self::TYPE_BOOL),
         )
     );
