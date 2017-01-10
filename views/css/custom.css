@@ -364,7 +364,7 @@ button.image-grid {
 }
 
 .accessories {
-    padding:30px 0px 30px 0px;
+    padding:30px 0px 30px 10px;
 }
 .accessories p{margin-bottom: 0}
 .accessories .list_accessories li {
@@ -657,8 +657,9 @@ button.image-grid {
 
 }
 @media(min-width:1024px) {
+	
 	 .overall-container #left-col.col-md-3 {
-		padding-left:30px;
+		padding-left: 20px;
     }
     .cart-section .form-horizontal.docs-data {
         width:100%;

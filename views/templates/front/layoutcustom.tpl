@@ -288,8 +288,8 @@
                         <div class="tab-content">
                             {foreach from=$getUnivers1 key=k item=universeImage}
                                 <div class="tab-pane {if (1 == $k+1)}active{/if} docs-preview" id="scene{$k+1|escape:'htmlall':'UTF-8'}">
-                                    <div class="backdrop" style="height:{if ($universeImage['universe_height'] > 0)}{$universeImage['universe_height']|escape:'htmlall':'UTF-8'}; {else} 76 {/if}%">
-                                        <img class="preview" src="" style="left:{$universeImage['universe_left']|escape:'htmlall':'UTF-8'}%;top:{$universeImage['universe_top']|escape:'htmlall':'UTF-8'}%;">
+                                    <div class="backdrop" style="height:{if ($universeImage['universe_height'] > 0)}{$universeImage['universe_height']|escape:'htmlall':'UTF-8'}{else}76{/if}%;left:{$universeImage['universe_left']|escape:'htmlall':'UTF-8'}%;top:{$universeImage['universe_top']|escape:'htmlall':'UTF-8'}%;">
+                                        <img class="preview" src="" style="">
                                         <span class="gridlayout"></span>                                        
                                     </div>
                                     <div class="overlay">
@@ -975,7 +975,7 @@
 
         var cropBoxData = cropper.getCropBoxData();
         //jQuery('.tab-content .active .backdrop .preview').width(cropBoxData.width);
-        jQuery('.backdrop .preview').width(cropBoxData.width);
+        //jQuery('.backdrop .preview').width(cropBoxData.width);
 
         setIndicatorPosition();
         setNewCustomPrice();
