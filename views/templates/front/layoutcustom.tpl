@@ -526,8 +526,16 @@
                         setNewCustomPrice();
                     }, 500);
                 }
-                jQuery('#dataWidth').val(sessionStorage.customWidth);
-                jQuery('#dataHeight').val(sessionStorage.customHeight);
+                if(parseInt(sessionStorage.customWidth) < allowedMaxWidth){
+                    jQuery('#dataWidth').val(sessionStorage.customWidth);
+                }else{
+                    jQuery('#dataWidth').val(allowedMaxWidth);
+                }
+                if(parseInt(sessionStorage.customHeight) < allowedMaxHeight){
+                    jQuery('#dataHeight').val(sessionStorage.customHeight);
+                }else{
+                    jQuery('#dataHeight').val(allowedMaxHeight);
+                }
             } else {
                 /*var newOpt = {
                  width: 300,
