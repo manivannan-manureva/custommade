@@ -407,7 +407,7 @@
     <div class="clear"></div>
     <div id="HOOK_PRODUCT_TAB_CONTENT">        
         {$HOOK_PRODUCT_TAB_CONTENT|escape:'htmlall':'UTF-8'|htmlspecialchars_decode:3}
-		<a href="#" class="idTabHrefShort"><span>{l s='Lire les 7 avis Papier peint Trapez Vert'}</span></a>
+		<a href="#" class="idTabHrefShort"><span>{l s='Lire les 7 avis Papier peint Trapez Vert' mod='custommade'}</span></a>
     </div>
 {/if}
     
