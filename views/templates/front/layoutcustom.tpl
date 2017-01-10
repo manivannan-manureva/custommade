@@ -68,7 +68,7 @@
             </div>
 
             <div class="section-content-start">
-                <div class="row">
+                <div class=""><!-- row -->
                     <div class="overall-container">
                         <div class="col-md-3" id="left-col">
                             <div class="cart-section wall-dimensions">
@@ -283,7 +283,7 @@
                             {/foreach}
                         </ul>
                     </div>
-                    <div class="col-xs-12 col-sm-10 no-gutter" >
+                    <div class="col-xs-12 col-sm-10 no-gutter" style="padding:0" >
                         <!-- Tab panes -->
                         <div class="tab-content">
                             {foreach from=$getUnivers1 key=k item=universeImage}

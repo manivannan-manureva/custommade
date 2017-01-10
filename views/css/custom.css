@@ -149,7 +149,10 @@ input[type="radio"]:checked + label span {
 
 .choose-area {padding-bottom: 0;}
 
-.cart-section .form-horizontal a{display: block;color: #9e191d;text-align: center;text-decoration: underline}
+.cart-section .form-horizontal a{display: block;color: #9e191d;text-align: center;text-decoration: underline;
+padding: 5px 0;
+    font-weight: bold;
+    font-size: 13px;}
 .cart-section .radio label { padding: 0; }
 .wall-dimensions .radio { display: inline-block; }
 .cart-section .form-horizontal .form-group{margin-left: 0 !important;margin-right: 0 !important}
@@ -258,11 +261,12 @@ ul.share-buttons li { display: inline; }
     font-weight: normal;    
     color: #666666;
     padding-bottom: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 70px;
 	text-transform: uppercase
 }
 .product-title strong {border-bottom: 1px solid #b3b3b3;}
-.prod_desc{ padding-bottom: 30px; }
+.prod_desc{ padding-bottom: 30px;
+	padding-left: 15px; }
 .form-horizontal .control-label {
     margin-bottom: 5px;
     font-weight: normal;
@@ -284,15 +288,13 @@ ul.share-buttons li { display: inline; }
 
 .gridbg {left:0px;}
 .customise-section {margin-top: 15px;margin-bottom: 20px;}
-
-
 .price-section{padding: 5px 0 5px;clear:both}
-
-.price-section .our_price_display b{font-size: 16px;font-weight: normal}
+.price-section .our_price_display b{font-size: 15px;font-weight: normal;}
 .price-section .sq-price{
     font-size: 20px;
     font-family: 'Conv_Book Antiqua Regular';
-    font-weight: normal
+    font-weight: normal;
+	padding-bottom: 10px;float: left;
 }
 .button-sec p{font-weight: normal}
 
@@ -339,6 +341,10 @@ button.image-grid {
     #cropper-tool-container {
         max-height: 300px;
     }
+	#module-custommade-default .idTabHrefShort{
+		margin: 0 20px 30px 20px;
+		padding: 0 8px;
+	}
 }
 
 @media (max-width: 767px) {
@@ -632,6 +638,7 @@ button.image-grid {
 
     .price-section .our_price_display {
         font-size: 20px;
+		margin-bottom: 0
     }
     .overall-container {
         border: 1px solid #7f7f7e;
@@ -660,7 +667,7 @@ button.image-grid {
         padding-right: 0px;
     }
     .prod_desc h2{
-        font-size: 30px;
+        font-size: 26px;
     }
     .customise-section .btn-default {
         width:200px;
@@ -673,6 +680,7 @@ button.image-grid {
     }
     .cart-section h3 {
         font-size: 14px;
+		padding-bottom: 0
     }
     .price-section .our_price_display {
         font-size: 30px;
