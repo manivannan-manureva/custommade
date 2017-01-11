@@ -178,7 +178,7 @@
                                             </p>
                                         {else}
                                             <p id="add_to_cart" class="buttons_bottom_block">
-                                                <input type="button" id="addcartbtn" name="Submit" value="{l s='Ajouter au panier' mod='custommade'}" class="exclusive" />
+                                                <input type="button" id="addcartbtn" name="Submit" value="{l s='Ajoutez au panier' mod='custommade'}" class="exclusive" />
                                             </p>
                                         {/if}
                                         <p>Livraison sous {$getPriceDetails->cust_delivery|intval} jours</p>
@@ -231,7 +231,7 @@
                             {if isset($accessories) && $accessories}
                                 <div class="col-md-4">
                                         <span style="padding-right:10px;float:left;">{l s='Coloris' mod='custommade'}</span> 
-                                        <select style="width:250px" onchange="javascript:document.location.href = this.value">
+                                        <select style="width:225px" onchange="javascript:document.location.href = this.value">
                                             <option value="">{$color_feature|escape:'htmlall':'UTF-8'} - {l s='Ref.' mod='custommade'} {$product->reference|escape:'htmlall':'UTF-8'}</option>
                                             {foreach from=$accessories item=accessoire}
                                                 <option value="{$accessoire.link|escape:'htmlall':'UTF-8'}">{foreach from=$accessoire.features item=feature}{if $feature.id_feature==1}{$feature.value|escape:'htmlall':'UTF-8'}{/if}{/foreach} - {l s='Ref.' mod='custommade'} {$accessoire.reference|escape:'htmlall':'UTF-8'}</option>
