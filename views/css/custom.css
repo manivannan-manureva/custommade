@@ -78,7 +78,7 @@ input[type="radio"]:checked + label span {
 .tabs-left, .tabs-right {border-bottom: none;}
 .tabs-left {border-right: 1px solid #ddd;}
 .tabs-right {border-left: 1px solid #ddd;}
-.tabs-left > li, .tabs-right > li {float: none;margin-bottom: 2px;}
+.tabs-left > li, .tabs-right > li {float: none;margin-bottom: 0px;}
 .tabs-left > li {margin-right: -1px;}
 .tabs-right > li { margin-left: -1px;}
 .tabs-left > li.active > a,
@@ -420,8 +420,9 @@ button.image-grid {
     padding: 2px 0px;
     height: 32px;
 }
-
-
+.nav.tabs-left > li > a{
+	padding: 9px 15px 10px;	
+}
 
 .cart-section h3 {
     font-size: 14px;
