@@ -120,6 +120,7 @@ class Custommade extends Module
             `universe_left` varchar(5) NOT NULL,
             `universe_top` varchar(5) NOT NULL,
             `universe_height` varchar(5) NOT NULL,
+            `universe_width` varchar(5) NOT NULL,
             `image` varchar(250) NOT NULL,
             `thump` varchar(250) NOT NULL,
             `active` enum("1","0") NOT NULL DEFAULT "1",

@@ -54,6 +54,11 @@ class CustomMadeAdminController extends ModuleAdminController
             'align' => 'center',
             'width' => 40,
         );
+        $this->fields_list['universe_width'] = array(
+            'title' => $this->l('Width'),
+            'align' => 'center',
+            'width' => 40,
+        );
         $this->fields_list['universe_height'] = array(
             'title' => $this->l('Height'),
             'align' => 'center',
@@ -134,6 +139,13 @@ class CustomMadeAdminController extends ModuleAdminController
                 ),
                 array(
                     'type' => 'text',
+                    'label' => $this->module->l('width:', 'CustomMadeAdmin'),
+                    'name' => 'universe_width',
+                    'required' => true,
+                    'hint' => $this->l('Invalid characters:').' <>;=#{}',
+                ),
+                array(
+                    'type' => 'text',
                     'label' => $this->module->l('Height:', 'CustomMadeAdmin'),
                     'name' => 'universe_height',
                     'required' => true,
@@ -189,7 +201,8 @@ class CustomMadeAdminController extends ModuleAdminController
                             $datas = array('universe_name'=>(string)Tools::getValue('universe_name'),
                                             'universe_left'=>(string)Tools::getValue('universe_left'),
                                             'universe_top'=>(string)Tools::getValue('universe_top'),
-                                            'universe_height'=>(string)Tools::getValue('universe_height'));
+                                            'universe_height'=>(string)Tools::getValue('universe_height'),
+                                            'universe_width'=>(string)Tools::getValue('universe_width'));
                             $active = (int)Tools::getValue('active');
                             $this->withoutimageupload($id_universe, $datas, $active);
                         } else {
@@ -214,7 +227,8 @@ class CustomMadeAdminController extends ModuleAdminController
                             $datas = array('universe_name'=>(string)Tools::getValue('universe_name'),
                                             'universe_left'=>(string)Tools::getValue('universe_left'),
                                             'universe_top'=>(string)Tools::getValue('universe_top'),
-                                            'universe_height'=>(string)Tools::getValue('universe_height'));
+                                            'universe_height'=>(string)Tools::getValue('universe_height'),
+                                            'universe_width'=>(string)Tools::getValue('universe_width'));
                             //$universe_name = (string)Tools::getValue('universe_name');
                             $thump = 'universe-'.Tools::stripslashes($imageName[0]).'.'.$imageType[1];
                             $image = $imgName;
@@ -238,7 +252,6 @@ class CustomMadeAdminController extends ModuleAdminController
 
                         $active = (int)Tools::getValue('active');
                         $this->imageupload($id_universe, $datas, $image, $thump, $active);
-                        die;
                     }
                 }
             }
@@ -254,6 +267,7 @@ class CustomMadeAdminController extends ModuleAdminController
                                                     universe_left = '".$datas['universe_left']."',
                                                     universe_top = '".$datas['universe_top']."',
                                                     universe_height = '".$datas['universe_height']."',
+                                                    universe_width = '".$datas['universe_width']."',
                                                     active = '".$active."'
                                                 WHERE id_universe = ".$id_universe;
             if (Db::getInstance()->execute($sql)) {
@@ -272,6 +286,7 @@ class CustomMadeAdminController extends ModuleAdminController
                                                     universe_left = '".$datas['universe_left']."',
                                                     universe_top = '".$datas['universe_top']."',
                                                     universe_height = '".$datas['universe_height']."',
+                                                    universe_width = '".$datas['universe_width']."',
                                                     image = '".$image."',
                                                     thump = '".$thump."',
                                                     active = '".$active."'
@@ -282,7 +297,7 @@ class CustomMadeAdminController extends ModuleAdminController
                 return false;
             }
         } else {
-            $sql =' INSERT INTO `'._DB_PREFIX_.Tools::strtolower($this->table).'` (`universe_name`, `universe_left`,`universe_top`,`universe_height`,`image`, `thump`, `active`) VALUES ("'.$datas['universe_name'].'","'.$datas['universe_left'].'" ,"'.$datas['universe_top'].'" ,"'.$datas['universe_height'].'" ,"'.$image.'","'.$thump.'", "'.$active.'")';
+            $sql =' INSERT INTO `'._DB_PREFIX_.Tools::strtolower($this->table).'` (`universe_name`, `universe_left`,`universe_top`,`universe_height`,`universe_width`,`image`, `thump`, `active`) VALUES ("'.$datas['universe_name'].'","'.$datas['universe_left'].'" ,"'.$datas['universe_top'].'" ,"'.$datas['universe_height'].'","'.$datas['universe_width'].'" ,"'.$image.'","'.$thump.'", "'.$active.'")';
             if (Db::getInstance()->execute($sql)) {
                 Tools::redirectAdmin(self::$currentIndex.'&token='.Tools::getAdminTokenLite('CustomMadeAdmin'));
             } else {
