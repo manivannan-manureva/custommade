@@ -48,10 +48,10 @@
             <table id="cart_summary" class="std panier">
                 <thead>
                     <tr>
-                        <th class="cart_product first_item">{l s='Product' mod='custommade'}</th>
+                        <th class="cart_product first_item">{l s='Produit' mod='custommade'}</th>
                         <th class="cart_description item">{l s='Description' mod='custommade'}</th>
-                        <th class="cart_unit item">{l s='Unit price' mod='custommade'}</th>
-                        <th class="cart_quantity item">{l s='Qty' mod='custommade'}</th>
+                        <th class="cart_unit item">{l s='Prix unitaire' mod='custommade'}</th>
+                        <th class="cart_quantity item">{l s='Qté' mod='custommade'}</th>
                         <th class="cart_total item" colspan="2">{l s='Total' mod='custommade'}</th>
                     </tr>
                 </thead>
@@ -327,7 +327,7 @@
                     <a href="{if $back}{$link->getPageLink('order', true, NULL, 'step=1&amp;back={$back}')|escape:'htmlall':'UTF-8'}{else}{$link->getPageLink('order', true, NULL, 'step=1')|escape:'htmlall':'UTF-8'}{/if}&amp;multi-shipping=1" class="multishipping-button multishipping-checkout exclusive" title="{l s='Next' mod='custommade'}">{l s='Commander' mod='custommade'}</a>
                 {/if*}
             {/if}
-            <a href="{if (isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order.php')) || isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order-opc') || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')|escape:'htmlall':'UTF-8'}{else}{$smarty.server.HTTP_REFERER|escape:'htmlall':'UTF-8'|secureReferrer}{/if}" class="button_large" title="{l s='Continue shopping' mod='custommade'}">{l s='Continue shopping' mod='custommade'}</a>
+            <a href="{if (isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order.php')) || isset($smarty.server.HTTP_REFERER) && strstr($smarty.server.HTTP_REFERER, 'order-opc') || !isset($smarty.server.HTTP_REFERER)}{$link->getPageLink('index')|escape:'htmlall':'UTF-8'}{else}{$smarty.server.HTTP_REFERER|escape:'htmlall':'UTF-8'|secureReferrer}{/if}" class="button_large" title="{l s='Continuer mes achats' mod='custommade'}">{l s='Continuer mes achats' mod='custommade'}</a>
         </p>
     </div>
         {*if !empty($HOOK_SHOPPING_CART_EXTRA)}
