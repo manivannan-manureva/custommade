@@ -288,7 +288,7 @@
                         <div class="tab-content">
                             {foreach from=$getUnivers1 key=k item=universeImage}
                                 <div class="tab-pane {if (1 == $k+1)}active{/if} docs-preview" id="scene{$k+1|escape:'htmlall':'UTF-8'}">
-                                    <div class="backdrop" style="height:{if ($universeImage['universe_height'] > 0)}{$universeImage['universe_height']|escape:'htmlall':'UTF-8'}{else}76{/if}%;left:{$universeImage['universe_left']|escape:'htmlall':'UTF-8'}%;top:{$universeImage['universe_top']|escape:'htmlall':'UTF-8'}%;width:{$universeImage['universe_width']|escape:'htmlall':'UTF-8'}%;">
+                                    <div class="backdrop" style="height:{if ($universeImage['universe_height'] > 0)}{$universeImage['universe_height']|escape:'htmlall':'UTF-8'}{else}76{/if}%;left:{$universeImage['universe_left']|escape:'htmlall':'UTF-8'}%;top:{$universeImage['universe_top']|escape:'htmlall':'UTF-8'}%;">
                                         <img class="preview" src="" style="">
                                         <span class="gridlayout"></span>                                        
                                     </div>
@@ -388,7 +388,7 @@
                     {assign var=entrega value=$feature.value}
                 {/if}
             {/foreach}
-            <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France m�tropolitaine' mod='custommade'}">{l s='D�s 150 � d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
+            <li><span>{l s='Frais de ports offerts' mod='custommade'}</span><br/><span title="{l s='Uniquement en France mètropolitaine' mod='custommade'}">{l s='Dès 150 € d\'achat' mod='custommade'}{if $lang_id != 4}<sup>*</sup>{/if}</span></li>
 
             {if $lang_id == 4}
                 <li><span>{l s='Question / Conseil / Commande' mod='custommade'}</span><br/><span><a href="mail:contact@aufildescouleurs.com">{l s='contact@aufildescouleurs.com' mod='custommade'}</a></span></li>
@@ -509,6 +509,7 @@
         //minContainerHeight: 600,
 
         ready: function (e) {
+					
             if (jQuery.trim(sessionStorage.cropData) != '') {
                 var prevCropDataOrg = JSON.parse(sessionStorage.cropData);
                 cropper.setData(prevCropDataOrg);
@@ -522,7 +523,7 @@
                         var previewHeight = jQuery('.tab-content .active .backdrop .preview').height();
                         $('.backdrop .gridlayout').css('width', previewWidth + 'px');
                         $('.backdrop .gridlayout').css('height', previewHeight + 'px');
-
+			
                         setNewCustomPrice();
                     }, 500);
                 }
@@ -554,6 +555,7 @@
             $('.preview').attr('src', dynamicImage);
             setCropToSession();
             setNewCustomPrice();
+			
         },
         cropstart: function (e) {
             //console.log(e.type, e.detail.action);
@@ -1115,15 +1117,24 @@
         }, 2000);
     });
     
+	
     jQuery(window).load(function(){
         dynamicImage = image.cropper.getCroppedCanvas().toDataURL('image/jpeg', 1);
-        $('.preview').attr('src', dynamicImage);
-        
+        $('.preview').attr('src', dynamicImage);		
+		
+		var overlayheight = jQuery('.overlay img').height();		
+		$('.customise-section .tabs-left').css('height', overlayheight + 'px');	
+		
         if({$enableStripe|escape:'htmlall':'UTF-8'}){
             if (jQuery.trim(sessionStorage.hasGrid) != '1') {
                 jQuery('#actions .image-grid').trigger('click');
             }
         }
     });
+	
+	 jQuery(window).resize(function(){
+		var overlayheight = jQuery('.overlay img').height();
+		$('.customise-section .tabs-left').css('height', overlayheight + 'px');		 
+	 });
 
 </script>
