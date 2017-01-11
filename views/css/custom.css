@@ -373,9 +373,10 @@ button.image-grid {
 }
 .accessories .col-md-8 h3 {
     margin:0px;    
-    font-family: 'Conv_Book Antiqua Regular';
+    font-family: century gothic;
+	font-weight: bold;
+	font-size: 20px;
 }
-
 
 .customise-section .btn-default i{
     font-size: 18px;
