@@ -222,6 +222,8 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
             $getUnivers = AuFilDesCoul::getUniversImage();
             $getPriceDetail = AuFilDesCoul::getAuFilDesByIDProduct((int) $this->product->id);
             
+            $formattedMeterPrice = number_format($getPriceDetail->sq_meter_price, 2, ',', ' ');
+                        
             if (trim($getPriceDetail->prod_customize) != '1') {
                 Tools::redirect($this->context->link->getProductLink($this->product->id));
                 exit;
@@ -339,7 +341,8 @@ class CustomMadeDefaultModuleFrontController extends ModuleFrontController
                 'aspectRatio' => $aspectRatio,
                 'cropData' => $cropData,
                 'enableStripe' => $enableStripe,
-                'optionGridSize' => $optionGridSize
+                'optionGridSize' => $optionGridSize,
+                'formattedMeterPrice' => $formattedMeterPrice
             ));
         }
         //echo $this->custModuleFolderName;die;
