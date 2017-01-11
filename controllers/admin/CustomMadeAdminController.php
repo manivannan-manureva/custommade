@@ -40,32 +40,32 @@ class CustomMadeAdminController extends ModuleAdminController
         $this->bulk_actions = array('delete' => array('text' => $this->l('Delete selected'),
                     'confirm' => $this->l('Delete selected items?')), );
         $this->fields_list['universe_name'] = array(
-            'title' => $this->l('Universe Name'),
+            'title' => $this->l('Nom de l\'univers'),
             'align' => 'center',
             'width' => 40,
         );
         $this->fields_list['universe_left'] = array(
-            'title' => $this->l('Left'),
+            'title' => $this->l('À gauche'),
             'align' => 'center',
             'width' => 40,
         );
         $this->fields_list['universe_top'] = array(
-            'title' => $this->l('Top'),
+            'title' => $this->l('Sommet'),
             'align' => 'center',
             'width' => 40,
         );
         $this->fields_list['universe_width'] = array(
-            'title' => $this->l('Width'),
+            'title' => $this->l('Largeur'),
             'align' => 'center',
             'width' => 40,
         );
         $this->fields_list['universe_height'] = array(
-            'title' => $this->l('Height'),
+            'title' => $this->l('Hauteur'),
             'align' => 'center',
             'width' => 40,
         );
         $this->fields_list['active'] = array(
-            'title'  => $this->l('Displayed'),
+            'title'  => $this->l('Affiché'),
             'align'  => 'center',
             'width'  => 25,
             'active' => 'active',
@@ -108,10 +108,10 @@ class CustomMadeAdminController extends ModuleAdminController
             'input' => array(
                 array(
                     'type' => 'text',
-                    'label' => $this->module->l('Universe Name:', 'CustomMadeAdmin'),
+                    'label' => $this->module->l('Nom de l\'univers:', 'CustomMadeAdmin'),
                     'name' => 'universe_name',
                     'required' => true,
-                    'hint' => $this->l('Invalid characters:').' <>;=#{}',
+                    'hint' => $this->l('Caractères invalides:').' <>;=#{}',
                 ),
                 array(
                     'type' => 'file',
@@ -125,35 +125,35 @@ class CustomMadeAdminController extends ModuleAdminController
                 ),
                 array(
                     'type' => 'text',
-                    'label' => $this->module->l('Left:', 'CustomMadeAdmin'),
+                    'label' => $this->module->l('À gauche:', 'CustomMadeAdmin'),
                     'name' => 'universe_left',
                     'required' => false,
-                    'hint' => $this->l('Accepted values in :').'%',
+                    'hint' => $this->l('Valeurs acceptées dans :').'%',
                 ),
                 array(
                     'type' => 'text',
-                    'label' => $this->module->l('Top:', 'CustomMadeAdmin'),
+                    'label' => $this->module->l('Sommet:', 'CustomMadeAdmin'),
                     'name' => 'universe_top',
                     'required' => false,
-                    'hint' => $this->l('Accepted values in :').'%',
+                    'hint' => $this->l('Valeurs acceptées dans :').'%',
                 ),
                 array(
                     'type' => 'text',
-                    'label' => $this->module->l('width:', 'CustomMadeAdmin'),
+                    'label' => $this->module->l('Largeur:', 'CustomMadeAdmin'),
                     'name' => 'universe_width',
                     'required' => false,
-                    'hint' => $this->l('Accepted values in :').'%',
+                    'hint' => $this->l('Valeurs acceptées dans :').'%',
                 ),
                 array(
                     'type' => 'text',
-                    'label' => $this->module->l('Height:', 'CustomMadeAdmin'),
+                    'label' => $this->module->l('Hauteur:', 'CustomMadeAdmin'),
                     'name' => 'universe_height',
                     'required' => false,
-                    'hint' => $this->l('Accepted values in :').'%',
+                    'hint' => $this->l('Valeurs acceptées dans :').'%',
                 ),
                 array(
                     'type' => 'radio',
-                    'label' => $this->l('Displayed:'),
+                    'label' => $this->l('Affiché:'),
                     'name' => 'active',
                     'required' => false,
                     'class' => 't',
@@ -162,12 +162,12 @@ class CustomMadeAdminController extends ModuleAdminController
                         array(
                             'id' => 'require_on',
                             'value' => 1,
-                            'label' => $this->l('Yes')
+                            'label' => $this->l('Oui')
                         ),
                         array(
                             'id' => 'require_off',
                             'value' => 0,
-                            'label' => $this->l('No')
+                            'label' => $this->l('Non')
                         )
                     )
                 ),
@@ -209,7 +209,7 @@ class CustomMadeAdminController extends ModuleAdminController
                             $this->errors[] = $error;
                         }
                     } elseif (!move_uploaded_file($_FILES[$name]['tmp_name'], $target_file)) {
-                        $this->errors = Tools::displayError('An error occurred while uploading image.');
+                        $this->errors = Tools::displayError("Une erreur s'est produite lors du chargement de l'image.");
                     } else {
                         $type = $_FILES[$name]['type'];
                         $imgName = $_FILES[$name]['name'];
@@ -222,7 +222,7 @@ class CustomMadeAdminController extends ModuleAdminController
                             (int)$image_type['width'],
                             (int)$image_type['height']
                         )) {
-                            $this->errors = Tools::displayError('An error occurred while uploading thumbnail image.');
+                            $this->errors = Tools::displayError("Une erreur s'est produite lors du téléchargement de l'image miniature.");
                         } else {
                             $datas = array('universe_name'=>(string)Tools::getValue('universe_name'),
                                             'universe_left'=>(string)Tools::getValue('universe_left'),
@@ -330,7 +330,7 @@ class CustomMadeAdminController extends ModuleAdminController
             parent::processBulkDelete();
             return true;
         } else {
-            $this->errors[] = Tools::displayError('You do not have permission to delete this.');
+            $this->errors[] = Tools::displayError("Vous n'êtes pas autorisé à le supprimer.");
         }
         return false;
     }
@@ -348,7 +348,7 @@ class CustomMadeAdminController extends ModuleAdminController
             parent::processDelete();
             return true;
         } else {
-            $this->errors[] = Tools::displayError('You do not have permission to delete this.');
+            $this->errors[] = Tools::displayError("Vous n'êtes pas autorisé à le supprimer.");
         }
         return false;
     }
