@@ -12,7 +12,7 @@
 	<td class="cart_description">
 		<p class="s_title_block"><a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop)|escape:'htmlall':'UTF-8'}">{$product.name|escape:'htmlall':'UTF-8'}<span class="hidden for_mobile"> {if $product.reference}- {$product.reference|escape:'htmlall':'UTF-8'}{/if}</span></a></p>
                 {if isset($product.custommade.user_width)}<small class="cart_ref">{l s='Largeur : ' mod='custommade'}{$product.custommade.user_width|escape:'html':'UTF-8'}{l s=' CM' mod='custommade'}</small><br/>{/if}
-                {if isset($product.custommade.user_height)}<small class="cart_ref">{l s='la taille : ' mod='custommade'}{$product.custommade.user_height|escape:'html':'UTF-8'}{l s=' CM' mod='custommade'}</small><br/>{/if}
+                {if isset($product.custommade.user_height)}<small class="cart_ref">{l s='Hauteur : ' mod='custommade'}{$product.custommade.user_height|escape:'html':'UTF-8'}{l s=' CM' mod='custommade'}</small><br/>{/if}
 		{if isset($product.attributes) && $product.attributes}<a href="{$link->getProductLink($product.id_product, $product.link_rewrite, $product.category, null, null, $product.id_shop)|escape:'htmlall':'UTF-8'}">{$product.attributes|replace:'Format : Commander un ': ''|replace:'Format : Commander ce ': ''|replace:'Format : Commander une ': ''|ucfirst|escape:'htmlall':'UTF-8'}</a>{/if}
 	</td>
 	{*<td class="cart_ref">{if $product.reference}{$product.reference|escape:'htmlall':'UTF-8'}{else}--{/if}</td>*}
