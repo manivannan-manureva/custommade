@@ -37,10 +37,10 @@ class CustomMadeAdminController extends ModuleAdminController
         $this->addRowAction('delete');
         $this->custommadeObj = new Custommade();
         $this->custModuleFolderName = _PS_MODULE_DIR_.$this->custommadeObj->name.'/views/img/';
-        $this->bulk_actions = array('delete' => array('text' => $this->l('Delete selected'),
-                    'confirm' => $this->l('Delete selected items?')), );
+        $this->bulk_actions = array('delete' => array('text' => $this->l('Supprimer sélectionnée'),
+                    'confirm' => $this->l('Supprimer les éléments sélectionnés?')), );
         $this->fields_list['universe_name'] = array(
-            'title' => $this->l('Nom de l\'univers'),
+            'title' => $this->l("Nom de l&#39;univers"),
             'align' => 'center',
             'width' => 40,
         );
