@@ -261,13 +261,17 @@ class CustomMadeAdminController extends ModuleAdminController
 
     private function withoutimageupload($id_universe, $datas, $active)
     {
+        $left = ($datas['universe_left'] != '') ? $datas['universe_left'] : '0';
+        $top = ($datas['universe_top'] != '') ? $datas['universe_top'] : '0';
+        $height = ($datas['universe_height'] != '') ? $datas['universe_height'] : '0';
+        $width = ($datas['universe_width'] != '') ? $datas['universe_width'] : '0';
         if (isset($id_universe) && !empty($id_universe) && $id_universe != 0) {
             $sql = "UPDATE `"._DB_PREFIX_.Tools::strtolower($this->table)."` SET 
                                                     universe_name = '".$datas['universe_name']."',
-                                                    universe_left = '".$datas['universe_left']."',
-                                                    universe_top = '".$datas['universe_top']."',
-                                                    universe_height = '".$datas['universe_height']."',
-                                                    universe_width = '".$datas['universe_width']."',
+                                                    universe_left = '".$left."',
+                                                    universe_top = '".$top."',
+                                                    universe_height = '".$height."',
+                                                    universe_width = '".$width."',
                                                     active = '".$active."'
                                                 WHERE id_universe = ".$id_universe;
             if (Db::getInstance()->execute($sql)) {
@@ -279,14 +283,19 @@ class CustomMadeAdminController extends ModuleAdminController
     }
 
     private function imageupload($id_universe, $datas, $image, $thump, $active)
-    {        
+    {
+        $left = ($datas['universe_left'] != '') ? $datas['universe_left'] : '0';
+        $top = ($datas['universe_top'] != '') ? $datas['universe_top'] : '0';
+        $height = ($datas['universe_height'] != '') ? $datas['universe_height'] : '0';
+        $width = ($datas['universe_width'] != '') ? $datas['universe_width'] : '0';
+        
         if (isset($id_universe) && !empty($id_universe) && $id_universe != 0) {
             $sql = "UPDATE `"._DB_PREFIX_.Tools::strtolower($this->table)."` SET 
                                                     universe_name = '".$datas['universe_name']."',
-                                                    universe_left = '".$datas['universe_left']."',
-                                                    universe_top = '".$datas['universe_top']."',
-                                                    universe_height = '".$datas['universe_height']."',
-                                                    universe_width = '".$datas['universe_width']."',
+                                                    universe_left = '".$left."',
+                                                    universe_top = '".$top."',
+                                                    universe_height = '".$height."',
+                                                    universe_width = '".$width."',
                                                     image = '".$image."',
                                                     thump = '".$thump."',
                                                     active = '".$active."'
@@ -297,7 +306,7 @@ class CustomMadeAdminController extends ModuleAdminController
                 return false;
             }
         } else {
-            $sql =' INSERT INTO `'._DB_PREFIX_.Tools::strtolower($this->table).'` (`universe_name`, `universe_left`,`universe_top`,`universe_height`,`universe_width`,`image`, `thump`, `active`) VALUES ("'.$datas['universe_name'].'","'.$datas['universe_left'].'" ,"'.$datas['universe_top'].'" ,"'.$datas['universe_height'].'","'.$datas['universe_width'].'" ,"'.$image.'","'.$thump.'", "'.$active.'")';
+            $sql =' INSERT INTO `'._DB_PREFIX_.Tools::strtolower($this->table).'` (`universe_name`, `universe_left`,`universe_top`,`universe_height`,`universe_width`,`image`, `thump`, `active`) VALUES ("'.$datas['universe_name'].'","'.$left.'" ,"'.$top.'" ,"'.$height.'","'.$width.'" ,"'.$image.'","'.$thump.'", "'.$active.'")';
             if (Db::getInstance()->execute($sql)) {
                 Tools::redirectAdmin(self::$currentIndex.'&token='.Tools::getAdminTokenLite('CustomMadeAdmin'));
             } else {
