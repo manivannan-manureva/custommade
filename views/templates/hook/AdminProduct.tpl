@@ -69,7 +69,7 @@
         <p class="preference_description"></p>
         </tr>
         <tr>
-            <td valign="top"><label for="productlist_custom" style="width:300px;">{l s='Exemple de produit :' mod='custommade'}</label></td>
+            <td valign="top"><label for="productlist_custom" style="width:300px;">{l s='Echantillon :' mod='custommade'}</label></td>
             <td>
                 <select name="sample_product" id="sample_product">
                     <option value="0">{l s='Veuillez selectionner' mod='custommade'}</option>
